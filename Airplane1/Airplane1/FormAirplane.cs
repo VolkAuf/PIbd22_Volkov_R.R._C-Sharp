@@ -46,24 +46,27 @@ namespace Airplane1
 
         private void buttonMove_Click(object sender, EventArgs e)
         {
-            //получаем имя кнопки
-            string name = (sender as Button).Name;
-            switch (name)
+            if (airplan!=null)
             {
-                case "buttonUp":
-                    airplan.MoveAirTransport(Direction.Up);
-                    break;
-                case "buttonDown":
-                    airplan.MoveAirTransport(Direction.Down);
-                    break;
-                case "buttonLeft":
-                    airplan.MoveAirTransport(Direction.Left);
-                    break;
-                case "buttonRight":
-                    airplan.MoveAirTransport(Direction.Right);
-                    break;
+                //получаем имя кнопки
+                string name = (sender as Button).Name;
+                switch (name)
+                {
+                    case "buttonUp":
+                        airplan.MoveAirTransport(Direction.Up);
+                        break;
+                    case "buttonDown":
+                        airplan.MoveAirTransport(Direction.Down);
+                        break;
+                    case "buttonLeft":
+                        airplan.MoveAirTransport(Direction.Left);
+                        break;
+                    case "buttonRight":
+                        airplan.MoveAirTransport(Direction.Right);
+                        break;
+                }
+                Draw();
             }
-            Draw();
         }
     }
 }
