@@ -66,6 +66,9 @@ namespace Airplane1
             };
                 g.FillPolygon(korpus, pointSportTail);// STail
             }
+
+            base.DrawTransport(g);
+
             if (SecondFloor)
             {
                 Point[] pointSecondFloor =
@@ -92,19 +95,17 @@ namespace Airplane1
                     g.FillEllipse(illuminator, (int)(_startPosX + airplaneWidth * 0.6), (int)(_startPosY + airplaneHeight * 0.4), (int)(airplaneWidth * 0.04), (int)(airplaneWidth * 0.04));
                 }
             }
-
-            base.DrawTransport(g);
-
+        
             if (ReclamLine)
             {
-                Point[] pointSportLine =
+                Point[] pointMarketLine =
             {
             new Point((int)(_startPosX+airplaneWidth*0.15),(int)( _startPosY+airplaneHeight*0.47)),
             new Point((int)(_startPosX+airplaneWidth*0.64),(int)( _startPosY+airplaneHeight*0.63)),
             new Point((int)(_startPosX+airplaneWidth*0.9),(int)( _startPosY+airplaneHeight*0.63)),
             new Point((int)(_startPosX+airplaneWidth*0.37),(int)( _startPosY+airplaneHeight*0.47))
             };
-                g.FillPolygon(reklamLine, pointSportLine);// SLine
+                g.FillPolygon(reklamLine, pointMarketLine);// SLine
 
             }
             if (Illuminator)
