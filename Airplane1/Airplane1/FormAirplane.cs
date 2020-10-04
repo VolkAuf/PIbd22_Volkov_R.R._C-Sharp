@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Airplane1
@@ -13,7 +7,7 @@ namespace Airplane1
     public partial class FormAirplane : Form
     {
 
-        private Airbus airplan;
+        private ITransport airplan;
 
         public FormAirplane()
         {
@@ -26,43 +20,45 @@ namespace Airplane1
             Graphics gr = Graphics.FromImage(bmp);
             airplan.DrawTransport(gr);
             pictureBoxAirplane.Image = bmp;
-
         }
 
-        private void FormAirplane_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonCreate_Click(object sender, EventArgs e)
+        private void buttonCreateAirbus_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
-            airplan = new Airbus(rnd.Next(150, 300), rnd.Next(1000, 2000), Color.LightSteelBlue, Color.Red, true, true, true, true,true,true);
+            airplan = new Airbus(rnd.Next(150, 300), rnd.Next(1000, 2000), Color.LightSteelBlue, Color.Red, true, true, true, true, true, true);
             airplan.SetPosition(rnd.Next(120, 150), rnd.Next(70, 100), pictureBoxAirplane.Width,
             pictureBoxAirplane.Height);
             Draw();
-            
+        }
+
+        private void buttonCreateAirplane_Click(object sender, EventArgs e)
+        {
+            Random rnd = new Random();
+            airplan = new Airplane(rnd.Next(150, 300), rnd.Next(1000, 2000), Color.LightSteelBlue);
+            airplan.SetPosition(rnd.Next(120, 150), rnd.Next(70, 100), pictureBoxAirplane.Width,
+            pictureBoxAirplane.Height);
+            Draw();
         }
 
         private void buttonMove_Click(object sender, EventArgs e)
         {
-            if (airplan!=null)
+            if (airplan != null)
             {
                 //получаем имя кнопки
                 string name = (sender as Button).Name;
                 switch (name)
                 {
                     case "buttonUp":
-                        airplan.MoveAirTransport(Direction.Up);
+                        airplan.MoveTransport(Direction.Up);
                         break;
                     case "buttonDown":
-                        airplan.MoveAirTransport(Direction.Down);
+                        airplan.MoveTransport(Direction.Down);
                         break;
                     case "buttonLeft":
-                        airplan.MoveAirTransport(Direction.Left);
+                        airplan.MoveTransport(Direction.Left);
                         break;
                     case "buttonRight":
-                        airplan.MoveAirTransport(Direction.Right);
+                        airplan.MoveTransport(Direction.Right);
                         break;
                 }
                 Draw();
