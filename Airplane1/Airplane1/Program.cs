@@ -9,9 +9,6 @@ namespace Airplane1
         /// Главная точка входа для приложения.
         /// </summary>
         [STAThread]
-
-
-
         private static void Main()
         {
             Application.EnableVisualStyles();
