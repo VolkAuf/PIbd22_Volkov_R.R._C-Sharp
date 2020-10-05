@@ -4,7 +4,6 @@ namespace Airplane1
 {
     public abstract class AirplaneDefault : ITransport
     {
-
         protected float _startPosX;
         protected float _startPosY;
         protected int _pictureWidth;

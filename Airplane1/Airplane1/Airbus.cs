@@ -2,7 +2,7 @@
 
 namespace Airplane1
 {
-    class Airbus : Airplane
+    internal class Airbus : Airplane
     {
         public Color DopColor { private set; get; }
         public bool BackTurbine { private set; get; }
@@ -95,7 +95,7 @@ namespace Airplane1
                     g.FillEllipse(illuminator, (int)(_startPosX + airplaneWidth * 0.6), (int)(_startPosY + airplaneHeight * 0.4), (int)(airplaneWidth * 0.04), (int)(airplaneWidth * 0.04));
                 }
             }
-        
+
             if (ReclamLine)
             {
                 Point[] pointMarketLine =
