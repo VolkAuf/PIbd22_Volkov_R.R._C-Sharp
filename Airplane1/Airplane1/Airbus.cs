@@ -5,24 +5,24 @@ namespace Airplane1
     internal class Airbus : Airplane
     {
         public Color DopColor { private set; get; }
-        public bool BackTurbine { private set; get; }
-        public bool SideTurbine { private set; get; }
-        public bool ReclamLine { private set; get; }
-        public bool RegulTail { private set; get; }
-        public bool Illuminator { private set; get; }
-        public bool SecondFloor { private set; get; }
+        public bool HasBackTurbine { private set; get; }
+        public bool HasSideTurbine { private set; get; }
+        public bool HasMarketLine { private set; get; }
+        public bool HasRegulTail { private set; get; }
+        public bool HasIlluminator { private set; get; }
+        public bool HasSecondFloor { private set; get; }
 
-        public Airbus(int maxSpeed, float weight, Color mainColor, Color dopColor, bool backTurbine, bool sideTurbine,
-            bool reclamLine, bool regulTail, bool illuminator, bool secondFloor)
+        public Airbus(int maxSpeed, float weight, Color mainColor, Color dopColor, bool hasBackTurbine, bool hasSideTurbine,
+            bool hasMarketLine, bool hasRegulTail, bool hasIlluminator, bool hasSecondFloor)
                 : base(maxSpeed, weight, mainColor, 150, 80)
         {
             DopColor = dopColor;
-            BackTurbine = backTurbine;
-            SideTurbine = sideTurbine;
-            ReclamLine = reclamLine;
-            RegulTail = regulTail;
-            Illuminator = illuminator;
-            SecondFloor = secondFloor;
+            HasBackTurbine = hasBackTurbine;
+            HasSideTurbine = hasSideTurbine;
+            HasMarketLine = hasMarketLine;
+            HasRegulTail = hasRegulTail;
+            HasIlluminator = hasIlluminator;
+            HasSecondFloor = hasSecondFloor;
         }
 
         public override void DrawTransport(Graphics g)
@@ -36,13 +36,13 @@ namespace Airplane1
             Brush dno = new SolidBrush(Color.White);
             Brush steclo = new SolidBrush(Color.Black);
 
-            if (BackTurbine)
+            if (HasBackTurbine)
             {
                 g.FillEllipse(turbin, (float)(_startPosX + airplaneWidth * 0.1), (float)(_startPosY + airplaneHeight * 0.4), (float)(airplaneWidth * 0.2), (float)(airplaneHeight * 0.2));
                 g.DrawLine(shestern, (float)(_startPosX + airplaneWidth * 0.1), (float)(_startPosY + airplaneHeight * 0.5), (float)(_startPosX + airplaneWidth * 0.3), (float)(_startPosY + airplaneHeight * 0.5));
                 g.DrawLine(shestern, (float)(_startPosX + airplaneWidth * 0.2), (float)(_startPosY + airplaneHeight * 0.4), (float)(_startPosX + airplaneWidth * 0.2), (float)(_startPosY + airplaneHeight * 0.6));
             }
-            if (SideTurbine)
+            if (HasSideTurbine)
             {
                 g.FillEllipse(turbin, (float)(_startPosX + airplaneWidth * 0.4), (float)(_startPosY + airplaneHeight * 0.01), (float)(airplaneWidth * 0.1), (float)(airplaneHeight * 0.1));
                 g.DrawLine(shestern, (float)(_startPosX + airplaneWidth * 0.4), (float)(_startPosY + airplaneHeight * 0.06), (float)(_startPosX + airplaneWidth * 0.5), (float)(_startPosY + airplaneHeight * 0.06));
@@ -51,7 +51,7 @@ namespace Airplane1
                 g.DrawLine(shestern, (float)(_startPosX + airplaneWidth * 0.4), (float)(_startPosY + airplaneHeight * 0.92), (float)(_startPosX + airplaneWidth * 0.5), (float)(_startPosY + airplaneHeight * 0.92));
                 g.DrawLine(shestern, (float)(_startPosX + airplaneWidth * 0.45), (float)(_startPosY + airplaneHeight * 0.87), (float)(_startPosX + airplaneWidth * 0.45), (float)(_startPosY + airplaneHeight * 0.97));
             }
-            if (RegulTail)
+            if (HasRegulTail)
             {
                 Point[] pointSportTail =
             {
@@ -69,7 +69,7 @@ namespace Airplane1
 
             base.DrawTransport(g);
 
-            if (SecondFloor)
+            if (HasSecondFloor)
             {
                 Point[] pointSecondFloor =
                 {
@@ -86,7 +86,7 @@ namespace Airplane1
                 g.DrawLine(pen, (int)(_startPosX + airplaneWidth * 0.75), (int)(_startPosY + airplaneHeight * 0.37), (int)(_startPosX + airplaneWidth * 0.75), (int)(_startPosY + airplaneHeight * 0.47));
                 g.DrawLine(pen, (int)(_startPosX + airplaneWidth * 0.75), (int)(_startPosY + airplaneHeight * 0.47), (int)(_startPosX + airplaneWidth * 0.72), (int)(_startPosY + airplaneHeight * 0.47));
 
-                if (Illuminator)
+                if (HasIlluminator)
                 {
                     g.FillEllipse(illuminator, (int)(_startPosX + airplaneWidth * 0.2), (int)(_startPosY + airplaneHeight * 0.4), (int)(airplaneWidth * 0.04), (int)(airplaneWidth * 0.04));
                     g.FillEllipse(illuminator, (int)(_startPosX + airplaneWidth * 0.3), (int)(_startPosY + airplaneHeight * 0.4), (int)(airplaneWidth * 0.04), (int)(airplaneWidth * 0.04));
@@ -96,7 +96,7 @@ namespace Airplane1
                 }
             }
 
-            if (ReclamLine)
+            if (HasMarketLine)
             {
                 Point[] pointMarketLine =
             {
@@ -108,7 +108,7 @@ namespace Airplane1
                 g.FillPolygon(reklamLine, pointMarketLine);// SLine
 
             }
-            if (Illuminator)
+            if (HasIlluminator)
             {
                 g.FillEllipse(illuminator, (int)(_startPosX + airplaneWidth * 0.2), (int)(_startPosY + airplaneHeight * 0.5), (int)(airplaneWidth * 0.04), (int)(airplaneWidth * 0.04));
                 g.FillEllipse(illuminator, (int)(_startPosX + airplaneWidth * 0.3), (int)(_startPosY + airplaneHeight * 0.5), (int)(airplaneWidth * 0.04), (int)(airplaneWidth * 0.04));

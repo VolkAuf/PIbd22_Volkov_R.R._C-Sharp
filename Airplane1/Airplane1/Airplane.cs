@@ -2,7 +2,7 @@
 
 namespace Airplane1
 {
-    public class Airplane : AirplaneDefault
+    public class Airplane : AirTransport
     {
         protected readonly int airplaneWidth = 150;
         protected readonly int airplaneHeight = 80;

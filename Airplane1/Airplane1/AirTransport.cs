@@ -2,7 +2,7 @@
 
 namespace Airplane1
 {
-    public abstract class AirplaneDefault : ITransport
+    public abstract class AirTransport : ITransport
     {
         protected float _startPosX;
         protected float _startPosY;

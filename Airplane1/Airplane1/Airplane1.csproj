@@ -64,7 +64,7 @@
   <ItemGroup>
     <Compile Include="Airbus.cs" />
     <Compile Include="Airplane.cs" />
-    <Compile Include="AirplaneDefault.cs" />
+    <Compile Include="AirTransport.cs" />
     <Compile Include="Direction.cs" />
     <Compile Include="FormAirplane.cs">
       <SubType>Form</SubType>
