@@ -33,7 +33,7 @@
             this.buttonSetAirbus = new System.Windows.Forms.Button();
             this.groupBoxAerodrome = new System.Windows.Forms.GroupBox();
             this.buttonTakeAirplane = new System.Windows.Forms.Button();
-            this.maskedTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBoxNumber = new System.Windows.Forms.MaskedTextBox();
             this.labelPlace = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAerodrome)).BeginInit();
             this.groupBoxAerodrome.SuspendLayout();
@@ -75,7 +75,7 @@
             // groupBoxAerodrome
             // 
             this.groupBoxAerodrome.Controls.Add(this.buttonTakeAirplane);
-            this.groupBoxAerodrome.Controls.Add(this.maskedTextBox);
+            this.groupBoxAerodrome.Controls.Add(this.maskedTextBoxNumber);
             this.groupBoxAerodrome.Controls.Add(this.labelPlace);
             this.groupBoxAerodrome.Location = new System.Drawing.Point(705, 205);
             this.groupBoxAerodrome.Margin = new System.Windows.Forms.Padding(4);
@@ -97,15 +97,15 @@
             this.buttonTakeAirplane.UseVisualStyleBackColor = true;
             this.buttonTakeAirplane.Click += new System.EventHandler(this.buttonTakeAirplane_Click);
             // 
-            // maskedTextBox
+            // maskedTextBoxNumber
             // 
-            this.maskedTextBox.Location = new System.Drawing.Point(65, 55);
-            this.maskedTextBox.Margin = new System.Windows.Forms.Padding(4);
-            this.maskedTextBox.Mask = "0";
-            this.maskedTextBox.Name = "maskedTextBox";
-            this.maskedTextBox.Size = new System.Drawing.Size(39, 22);
-            this.maskedTextBox.TabIndex = 1;
-            this.maskedTextBox.ValidatingType = typeof(int);
+            this.maskedTextBoxNumber.Location = new System.Drawing.Point(65, 55);
+            this.maskedTextBoxNumber.Margin = new System.Windows.Forms.Padding(4);
+            this.maskedTextBoxNumber.Mask = "0";
+            this.maskedTextBoxNumber.Name = "maskedTextBoxNumber";
+            this.maskedTextBoxNumber.Size = new System.Drawing.Size(39, 22);
+            this.maskedTextBoxNumber.TabIndex = 1;
+            this.maskedTextBoxNumber.ValidatingType = typeof(int);
             // 
             // labelPlace
             // 
@@ -143,7 +143,7 @@
         private System.Windows.Forms.Button buttonSetAirbus;
         private System.Windows.Forms.GroupBox groupBoxAerodrome;
         private System.Windows.Forms.Button buttonTakeAirplane;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxNumber;
         private System.Windows.Forms.Label labelPlace;
     }
 }

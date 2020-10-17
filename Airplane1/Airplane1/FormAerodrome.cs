@@ -62,9 +62,9 @@ namespace Airplane1
 
         private void buttonTakeAirplane_Click(object sender, EventArgs e)
         {
-            if (maskedTextBox.Text != "")
+            if (maskedTextBoxNumber.Text != "")
             {
-                int index = Convert.ToInt32(maskedTextBox.Text);
+                int index = Convert.ToInt32(maskedTextBoxNumber.Text);
                 if (index >= 0 && index < 9)
                 {
                     Airplane airplane = aerodrome - index;
