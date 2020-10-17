@@ -32,25 +32,34 @@ namespace Airplane1
             Brush korpus = new SolidBrush(MainColor);
             Brush turbin = new SolidBrush(Color.Black);
             Brush illuminator = new SolidBrush(Color.FloralWhite);
-            Brush reklamLine = new SolidBrush(DopColor);
-            Brush dno = new SolidBrush(Color.White);
-            Brush steclo = new SolidBrush(Color.Black);
+            Brush dopcolor = new SolidBrush(DopColor);
 
             if (HasBackTurbine)
             {
-                g.FillEllipse(turbin, (float)(_startPosX + airplaneWidth * 0.1), (float)(_startPosY + airplaneHeight * 0.4), (float)(airplaneWidth * 0.2), (float)(airplaneHeight * 0.2));
-                g.DrawLine(shestern, (float)(_startPosX + airplaneWidth * 0.1), (float)(_startPosY + airplaneHeight * 0.5), (float)(_startPosX + airplaneWidth * 0.3), (float)(_startPosY + airplaneHeight * 0.5));
-                g.DrawLine(shestern, (float)(_startPosX + airplaneWidth * 0.2), (float)(_startPosY + airplaneHeight * 0.4), (float)(_startPosX + airplaneWidth * 0.2), (float)(_startPosY + airplaneHeight * 0.6));
+                g.FillEllipse(turbin, (float)(_startPosX + airplaneWidth * 0.1), (float)(_startPosY + airplaneHeight * 0.4),
+                    (float)(airplaneWidth * 0.2), (float)(airplaneHeight * 0.2));
+                g.DrawLine(shestern, (float)(_startPosX + airplaneWidth * 0.1), (float)(_startPosY + airplaneHeight * 0.5),
+                    (float)(_startPosX + airplaneWidth * 0.3), (float)(_startPosY + airplaneHeight * 0.5));
+                g.DrawLine(shestern, (float)(_startPosX + airplaneWidth * 0.2), (float)(_startPosY + airplaneHeight * 0.4),
+                    (float)(_startPosX + airplaneWidth * 0.2), (float)(_startPosY + airplaneHeight * 0.6));
             }
+
             if (HasSideTurbine)
             {
-                g.FillEllipse(turbin, (float)(_startPosX + airplaneWidth * 0.4), (float)(_startPosY + airplaneHeight * 0.01), (float)(airplaneWidth * 0.1), (float)(airplaneHeight * 0.1));
-                g.DrawLine(shestern, (float)(_startPosX + airplaneWidth * 0.4), (float)(_startPosY + airplaneHeight * 0.06), (float)(_startPosX + airplaneWidth * 0.5), (float)(_startPosY + airplaneHeight * 0.06));
-                g.DrawLine(shestern, (float)(_startPosX + airplaneWidth * 0.45), (float)(_startPosY + airplaneHeight * 0.01), (float)(_startPosX + airplaneWidth * 0.45), (float)(_startPosY + airplaneHeight * 0.11));
-                g.FillEllipse(turbin, (float)(_startPosX + airplaneWidth * 0.4), (float)(_startPosY + airplaneHeight * 0.87), (float)(airplaneWidth * 0.1), (float)(airplaneHeight * 0.1));
-                g.DrawLine(shestern, (float)(_startPosX + airplaneWidth * 0.4), (float)(_startPosY + airplaneHeight * 0.92), (float)(_startPosX + airplaneWidth * 0.5), (float)(_startPosY + airplaneHeight * 0.92));
-                g.DrawLine(shestern, (float)(_startPosX + airplaneWidth * 0.45), (float)(_startPosY + airplaneHeight * 0.87), (float)(_startPosX + airplaneWidth * 0.45), (float)(_startPosY + airplaneHeight * 0.97));
+                g.FillEllipse(turbin, (float)(_startPosX + airplaneWidth * 0.4), (float)(_startPosY + airplaneHeight * 0.01),
+                    (float)(airplaneWidth * 0.1), (float)(airplaneHeight * 0.1));
+                g.DrawLine(shestern, (float)(_startPosX + airplaneWidth * 0.4), (float)(_startPosY + airplaneHeight * 0.06),
+                    (float)(_startPosX + airplaneWidth * 0.5), (float)(_startPosY + airplaneHeight * 0.06));
+                g.DrawLine(shestern, (float)(_startPosX + airplaneWidth * 0.45), (float)(_startPosY + airplaneHeight * 0.01),
+                    (float)(_startPosX + airplaneWidth * 0.45), (float)(_startPosY + airplaneHeight * 0.11));
+                g.FillEllipse(turbin, (float)(_startPosX + airplaneWidth * 0.4), (float)(_startPosY + airplaneHeight * 0.87),
+                    (float)(airplaneWidth * 0.1), (float)(airplaneHeight * 0.1));
+                g.DrawLine(shestern, (float)(_startPosX + airplaneWidth * 0.4), (float)(_startPosY + airplaneHeight * 0.92),
+                    (float)(_startPosX + airplaneWidth * 0.5), (float)(_startPosY + airplaneHeight * 0.92));
+                g.DrawLine(shestern, (float)(_startPosX + airplaneWidth * 0.45), (float)(_startPosY + airplaneHeight * 0.87),
+                    (float)(_startPosX + airplaneWidth * 0.45), (float)(_startPosY + airplaneHeight * 0.97));
             }
+
             if (HasRegulTail)
             {
                 Point[] pointSportTail =
@@ -105,17 +114,24 @@ namespace Airplane1
             new Point((int)(_startPosX+airplaneWidth*0.9),(int)( _startPosY+airplaneHeight*0.63)),
             new Point((int)(_startPosX+airplaneWidth*0.37),(int)( _startPosY+airplaneHeight*0.47))
             };
-                g.FillPolygon(reklamLine, pointMarketLine);// SLine
+                g.FillPolygon(dopcolor, pointMarketLine);// SLine
 
             }
+
             if (HasIlluminator)
             {
-                g.FillEllipse(illuminator, (int)(_startPosX + airplaneWidth * 0.2), (int)(_startPosY + airplaneHeight * 0.5), (int)(airplaneWidth * 0.04), (int)(airplaneWidth * 0.04));
-                g.FillEllipse(illuminator, (int)(_startPosX + airplaneWidth * 0.3), (int)(_startPosY + airplaneHeight * 0.5), (int)(airplaneWidth * 0.04), (int)(airplaneWidth * 0.04));
-                g.FillEllipse(illuminator, (int)(_startPosX + airplaneWidth * 0.4), (int)(_startPosY + airplaneHeight * 0.5), (int)(airplaneWidth * 0.04), (int)(airplaneWidth * 0.04));
-                g.FillEllipse(illuminator, (int)(_startPosX + airplaneWidth * 0.5), (int)(_startPosY + airplaneHeight * 0.5), (int)(airplaneWidth * 0.04), (int)(airplaneWidth * 0.04));
-                g.FillEllipse(illuminator, (int)(_startPosX + airplaneWidth * 0.6), (int)(_startPosY + airplaneHeight * 0.5), (int)(airplaneWidth * 0.04), (int)(airplaneWidth * 0.04));
-                g.FillEllipse(illuminator, (int)(_startPosX + airplaneWidth * 0.7), (int)(_startPosY + airplaneHeight * 0.5), (int)(airplaneWidth * 0.04), (int)(airplaneWidth * 0.04));
+                g.FillEllipse(illuminator, (int)(_startPosX + airplaneWidth * 0.2), (int)(_startPosY + airplaneHeight * 0.5),
+                    (int)(airplaneWidth * 0.04), (int)(airplaneWidth * 0.04));
+                g.FillEllipse(illuminator, (int)(_startPosX + airplaneWidth * 0.3), (int)(_startPosY + airplaneHeight * 0.5),
+                    (int)(airplaneWidth * 0.04), (int)(airplaneWidth * 0.04));
+                g.FillEllipse(illuminator, (int)(_startPosX + airplaneWidth * 0.4), (int)(_startPosY + airplaneHeight * 0.5),
+                    (int)(airplaneWidth * 0.04), (int)(airplaneWidth * 0.04));
+                g.FillEllipse(illuminator, (int)(_startPosX + airplaneWidth * 0.5), (int)(_startPosY + airplaneHeight * 0.5),
+                    (int)(airplaneWidth * 0.04), (int)(airplaneWidth * 0.04));
+                g.FillEllipse(illuminator, (int)(_startPosX + airplaneWidth * 0.6), (int)(_startPosY + airplaneHeight * 0.5),
+                    (int)(airplaneWidth * 0.04), (int)(airplaneWidth * 0.04));
+                g.FillEllipse(illuminator, (int)(_startPosX + airplaneWidth * 0.7), (int)(_startPosY + airplaneHeight * 0.5),
+                    (int)(airplaneWidth * 0.04), (int)(airplaneWidth * 0.04));
             }
         }
     }

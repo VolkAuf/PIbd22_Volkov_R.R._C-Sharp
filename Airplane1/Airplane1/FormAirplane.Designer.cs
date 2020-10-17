@@ -28,26 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonCreate = new System.Windows.Forms.Button();
             this.buttonDown = new System.Windows.Forms.Button();
             this.buttonLeft = new System.Windows.Forms.Button();
             this.buttonUp = new System.Windows.Forms.Button();
             this.buttonRight = new System.Windows.Forms.Button();
             this.pictureBoxAirplane = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAirplane)).BeginInit();
             this.SuspendLayout();
-            // 
-            // buttonCreate
-            // 
-            this.buttonCreate.Location = new System.Drawing.Point(15, 30);
-            this.buttonCreate.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonCreate.Name = "buttonCreate";
-            this.buttonCreate.Size = new System.Drawing.Size(150, 30);
-            this.buttonCreate.TabIndex = 1;
-            this.buttonCreate.Text = "Создать Самолёт";
-            this.buttonCreate.UseVisualStyleBackColor = true;
-            this.buttonCreate.Click += new System.EventHandler(this.buttonCreateAirplane_Click);
             // 
             // buttonDown
             // 
@@ -111,27 +98,15 @@
             this.pictureBoxAirplane.TabIndex = 0;
             this.pictureBoxAirplane.TabStop = false;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(170, 30);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 30);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Создать Аэробус";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.buttonCreateAirbus_Click);
-            // 
             // FormAirplane
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1312, 567);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonUp);
             this.Controls.Add(this.buttonLeft);
             this.Controls.Add(this.buttonDown);
             this.Controls.Add(this.buttonRight);
-            this.Controls.Add(this.buttonCreate);
             this.Controls.Add(this.pictureBoxAirplane);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormAirplane";
@@ -145,12 +120,10 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBoxAirplane;
-        private System.Windows.Forms.Button buttonCreate;
         private System.Windows.Forms.Button buttonRight;
         private System.Windows.Forms.Button buttonDown;
         private System.Windows.Forms.Button buttonLeft;
         private System.Windows.Forms.Button buttonUp;
-        private System.Windows.Forms.Button button1;
     }
 }
 
