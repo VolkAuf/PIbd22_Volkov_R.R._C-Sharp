@@ -4,8 +4,8 @@ namespace Airplane1
 {
     public class Airplane : AirTransport
     {
-        protected readonly int airplaneWidth = 150;
-        protected readonly int airplaneHeight = 80;
+        protected readonly int airplaneWidth = 130;
+        protected readonly int airplaneHeight = 90;
 
         public Airplane(int maxSpeed, float weigth, Color mainColor)
         {
@@ -98,7 +98,7 @@ namespace Airplane1
             g.FillPolygon(dno, pointDno);// Dno
 
             Point[] pointRightWing =
-           {
+            {
             new Point((int)(_startPosX+airplaneWidth*0.55),(int)( _startPosY+airplaneHeight*0.50)),
             new Point((int)(_startPosX+airplaneWidth*0.4),(int)( _startPosY+airplaneHeight*0.05)),
             new Point((int)(_startPosX+airplaneWidth*0.5),(int)( _startPosY+airplaneHeight*0.05)),
@@ -107,7 +107,7 @@ namespace Airplane1
             g.FillPolygon(korpus, pointRightWing);// Krilo
 
             Point[] pointLeftWing =
-           {
+            {
             new Point((int)(_startPosX+airplaneWidth*0.55),(int)( _startPosY+airplaneHeight*0.6)),
             new Point((int)(_startPosX+airplaneWidth*0.4),(int)( _startPosY+airplaneHeight-10)),
             new Point((int)(_startPosX+airplaneWidth*0.5),(int)( _startPosY+airplaneHeight-10)),

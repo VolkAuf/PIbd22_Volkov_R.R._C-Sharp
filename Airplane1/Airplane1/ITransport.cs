@@ -2,7 +2,7 @@
 
 namespace Airplane1
 {
-    internal interface ITransport
+    public interface ITransport
     {
         void SetPosition(int x, int y, int width, int height);
 

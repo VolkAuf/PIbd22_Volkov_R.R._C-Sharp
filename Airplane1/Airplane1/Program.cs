@@ -13,7 +13,7 @@ namespace Airplane1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormAirplane());
+            Application.Run(new FormAerodrome());
         }
     }
 }

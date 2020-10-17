@@ -72,11 +72,21 @@
     <Compile Include="FormAirplane.Designer.cs">
       <DependentUpon>FormAirplane.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAerodrome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAerodrome.Designer.cs">
+      <DependentUpon>FormAerodrome.cs</DependentUpon>
+    </Compile>
     <Compile Include="ITransport.cs" />
+    <Compile Include="Aerodrome.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormAirplane.resx">
       <DependentUpon>FormAirplane.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAerodrome.resx">
+      <DependentUpon>FormAerodrome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
