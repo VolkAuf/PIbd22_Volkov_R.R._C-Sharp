@@ -35,6 +35,11 @@
             this.buttonTakeAirplane = new System.Windows.Forms.Button();
             this.maskedTextBoxNumber = new System.Windows.Forms.MaskedTextBox();
             this.labelPlace = new System.Windows.Forms.Label();
+            this.listBoxAerodrome = new System.Windows.Forms.ListBox();
+            this.textBoxNewLevel = new System.Windows.Forms.TextBox();
+            this.labelAerodromeStage = new System.Windows.Forms.Label();
+            this.buttonAddAerodrome = new System.Windows.Forms.Button();
+            this.buttonDeleteAerodrome = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAerodrome)).BeginInit();
             this.groupBoxAerodrome.SuspendLayout();
             this.SuspendLayout();
@@ -46,16 +51,16 @@
             this.pictureBoxAerodrome.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxAerodrome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxAerodrome.Name = "pictureBoxAerodrome";
-            this.pictureBoxAerodrome.Size = new System.Drawing.Size(700, 450);
+            this.pictureBoxAerodrome.Size = new System.Drawing.Size(830, 540);
             this.pictureBoxAerodrome.TabIndex = 0;
             this.pictureBoxAerodrome.TabStop = false;
             // 
             // buttonSetAirplane
             // 
-            this.buttonSetAirplane.Location = new System.Drawing.Point(705, 21);
+            this.buttonSetAirplane.Location = new System.Drawing.Point(840, 320);
             this.buttonSetAirplane.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSetAirplane.Name = "buttonSetAirplane";
-            this.buttonSetAirplane.Size = new System.Drawing.Size(120, 50);
+            this.buttonSetAirplane.Size = new System.Drawing.Size(130, 45);
             this.buttonSetAirplane.TabIndex = 1;
             this.buttonSetAirplane.Text = "Припарковать Самолёт";
             this.buttonSetAirplane.UseVisualStyleBackColor = true;
@@ -63,10 +68,10 @@
             // 
             // buttonSetAirbus
             // 
-            this.buttonSetAirbus.Location = new System.Drawing.Point(705, 90);
+            this.buttonSetAirbus.Location = new System.Drawing.Point(840, 370);
             this.buttonSetAirbus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSetAirbus.Name = "buttonSetAirbus";
-            this.buttonSetAirbus.Size = new System.Drawing.Size(120, 50);
+            this.buttonSetAirbus.Size = new System.Drawing.Size(130, 45);
             this.buttonSetAirbus.TabIndex = 2;
             this.buttonSetAirbus.Text = "Припарковать Аэробус";
             this.buttonSetAirbus.UseVisualStyleBackColor = true;
@@ -77,11 +82,11 @@
             this.groupBoxAerodrome.Controls.Add(this.buttonTakeAirplane);
             this.groupBoxAerodrome.Controls.Add(this.maskedTextBoxNumber);
             this.groupBoxAerodrome.Controls.Add(this.labelPlace);
-            this.groupBoxAerodrome.Location = new System.Drawing.Point(705, 205);
+            this.groupBoxAerodrome.Location = new System.Drawing.Point(840, 420);
             this.groupBoxAerodrome.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxAerodrome.Name = "groupBoxAerodrome";
             this.groupBoxAerodrome.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBoxAerodrome.Size = new System.Drawing.Size(130, 118);
+            this.groupBoxAerodrome.Size = new System.Drawing.Size(130, 120);
             this.groupBoxAerodrome.TabIndex = 3;
             this.groupBoxAerodrome.TabStop = false;
             this.groupBoxAerodrome.Text = "Забрать лётное средство";
@@ -117,11 +122,62 @@
             this.labelPlace.TabIndex = 0;
             this.labelPlace.Text = "Место";
             // 
+            // listBoxAerodrome
+            // 
+            this.listBoxAerodrome.FormattingEnabled = true;
+            this.listBoxAerodrome.ItemHeight = 16;
+            this.listBoxAerodrome.Location = new System.Drawing.Point(840, 130);
+            this.listBoxAerodrome.Name = "listBoxAerodrome";
+            this.listBoxAerodrome.Size = new System.Drawing.Size(130, 116);
+            this.listBoxAerodrome.TabIndex = 4;
+            this.listBoxAerodrome.SelectedIndexChanged += new System.EventHandler(this.listBoxAerodrome_SelectedIndexChanged);
+            // 
+            // textBoxNewLevel
+            // 
+            this.textBoxNewLevel.Location = new System.Drawing.Point(840, 50);
+            this.textBoxNewLevel.Name = "textBoxNewLevel";
+            this.textBoxNewLevel.Size = new System.Drawing.Size(130, 22);
+            this.textBoxNewLevel.TabIndex = 5;
+            // 
+            // labelAerodromeStage
+            // 
+            this.labelAerodromeStage.AutoSize = true;
+            this.labelAerodromeStage.Location = new System.Drawing.Point(840, 25);
+            this.labelAerodromeStage.Name = "labelAerodromeStage";
+            this.labelAerodromeStage.Size = new System.Drawing.Size(117, 17);
+            this.labelAerodromeStage.TabIndex = 6;
+            this.labelAerodromeStage.Text = "Aerodrome stage";
+            // 
+            // buttonAddAerodrome
+            // 
+            this.buttonAddAerodrome.Location = new System.Drawing.Point(840, 80);
+            this.buttonAddAerodrome.Name = "buttonAddAerodrome";
+            this.buttonAddAerodrome.Size = new System.Drawing.Size(130, 45);
+            this.buttonAddAerodrome.TabIndex = 7;
+            this.buttonAddAerodrome.Text = "Add Aerodrome";
+            this.buttonAddAerodrome.UseVisualStyleBackColor = true;
+            this.buttonAddAerodrome.Click += new System.EventHandler(this.buttonAddAerodrome_Click);
+            // 
+            // buttonDeleteAerodrome
+            // 
+            this.buttonDeleteAerodrome.Location = new System.Drawing.Point(840, 250);
+            this.buttonDeleteAerodrome.Name = "buttonDeleteAerodrome";
+            this.buttonDeleteAerodrome.Size = new System.Drawing.Size(130, 45);
+            this.buttonDeleteAerodrome.TabIndex = 8;
+            this.buttonDeleteAerodrome.Text = "Delete Aerodrome";
+            this.buttonDeleteAerodrome.UseVisualStyleBackColor = true;
+            this.buttonDeleteAerodrome.Click += new System.EventHandler(this.buttonDeleteAerodrome_Click);
+            // 
             // FormAerodrome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(832, 453);
+            this.ClientSize = new System.Drawing.Size(982, 553);
+            this.Controls.Add(this.buttonDeleteAerodrome);
+            this.Controls.Add(this.buttonAddAerodrome);
+            this.Controls.Add(this.labelAerodromeStage);
+            this.Controls.Add(this.textBoxNewLevel);
+            this.Controls.Add(this.listBoxAerodrome);
             this.Controls.Add(this.groupBoxAerodrome);
             this.Controls.Add(this.buttonSetAirbus);
             this.Controls.Add(this.buttonSetAirplane);
@@ -133,6 +189,7 @@
             this.groupBoxAerodrome.ResumeLayout(false);
             this.groupBoxAerodrome.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -145,5 +202,10 @@
         private System.Windows.Forms.Button buttonTakeAirplane;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxNumber;
         private System.Windows.Forms.Label labelPlace;
+        private System.Windows.Forms.ListBox listBoxAerodrome;
+        private System.Windows.Forms.TextBox textBoxNewLevel;
+        private System.Windows.Forms.Label labelAerodromeStage;
+        private System.Windows.Forms.Button buttonAddAerodrome;
+        private System.Windows.Forms.Button buttonDeleteAerodrome;
     }
 }

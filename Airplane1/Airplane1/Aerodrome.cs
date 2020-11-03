@@ -1,11 +1,11 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.Drawing;
 
 namespace Airplane1
 {
     public class Aerodrome<T> where T : class, ITransport
     {
-        private readonly T[] _places;
+        private readonly List<T> _places;
         private readonly int pictureWidth;
         private readonly int pictureHeight;
         private readonly int _placeSizeWidth = 170;
@@ -16,67 +16,49 @@ namespace Airplane1
         {
             int width = picWidth / _placeSizeWidth;
             int height = picHeight / _placeSizeHeight;
-            _places = new T[width * height];
+            _places = new List<T>();
             size = width * height;
             pictureWidth = picWidth;
             pictureHeight = picHeight;
         }
 
-        public static bool operator +(Aerodrome<T> p, T airplane)
+        public static bool operator +(Aerodrome<T> a, T airplane)
         {
-            for (int i = 0; i < p._places.Length; i++)
+            if (a._places.Count >= a.size)
             {
-                if (p.CheckPlace(i))
-                {
-                    int width = p.pictureWidth / p._placeSizeWidth;
-                    p._places[i] = airplane;
-                    int shift = 10;
-                    p._places[i].SetPosition(i / width * p._placeSizeWidth,
-                                 i % width * p._placeSizeHeight + shift, p.pictureWidth,
-                                p.pictureHeight);
-                    return true;
-                }
+                return false;
             }
-            return false;
+            a._places.Add(airplane);
+            return true;
         }
 
         public static T operator -(Aerodrome<T> p, int index)
         {
             // Прописать логику для вычитания
-            if (index < 0 || index > p._places.Length)
+            if (index < -1 || index > p._places.Count)
             {
                 return null;
             }
-            if (!p.CheckPlace(index))
-            {
-                Random rnd = new Random();
-                T airplane = p._places[index];
-                airplane.SetPosition(rnd.Next(30, 100), rnd.Next(30, 100), p.pictureWidth,
-           p.pictureHeight);
-
-                p._places[index] = null;
-                return airplane;
-            }
-            return null;
-        }
-
-        private bool CheckPlace(int placeIndex)
-        {
-            return _places[placeIndex] == null;
+            T car = p._places[index];
+            p._places.RemoveAt(index);
+            return car;
         }
 
         public void Draw(Graphics g)
         {
+            int marginY = 10;
             DrawMarking(g);
-            for (int i = 0; i < _places.Length; i++)
+            for (int i = 0; i < _places.Count; ++i)
             {
-                _places[i]?.DrawTransport(g);
+                _places[i].SetPosition(i / 4 * _placeSizeWidth, i % 4 * _placeSizeHeight + marginY, pictureWidth, pictureHeight);
+                _places[i].DrawTransport(g);
             }
         }
 
         private void DrawMarking(Graphics g)
         {
             Pen pen = new Pen(Color.Black, 3);
+
             for (int i = 0; i < pictureWidth / _placeSizeWidth; i++)
             {
                 for (int j = 0; j < pictureHeight / _placeSizeHeight + 1; ++j)
