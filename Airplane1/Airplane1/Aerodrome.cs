@@ -39,9 +39,9 @@ namespace Airplane1
             {
                 return null;
             }
-            T car = p._places[index];
+            T airplane = p._places[index];
             p._places.RemoveAt(index);
-            return car;
+            return airplane;
         }
 
         public void Draw(Graphics g)

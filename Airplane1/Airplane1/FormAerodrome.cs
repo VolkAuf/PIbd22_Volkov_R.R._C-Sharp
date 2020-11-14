@@ -90,7 +90,7 @@ namespace Airplane1
                     }
                     else
                     {
-                        MessageBox.Show("Парковка переполнена");
+                        MessageBox.Show("aerodrome is full");
                     }
                 }
             }
