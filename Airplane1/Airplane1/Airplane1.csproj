@@ -62,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AerodromeCollection.cs" />
     <Compile Include="Airbus.cs" />
     <Compile Include="Airplane.cs" />
     <Compile Include="AirTransport.cs" />

@@ -63,16 +63,16 @@ namespace Airplane1
             if (HasRegulTail)
             {
                 Point[] pointSportTail =
-            {
-            new Point((int)(_startPosX + airplaneWidth* 0.18), (int) (_startPosY + airplaneHeight* 0.19)),
-            new Point((int)(_startPosX + airplaneWidth* 0.1), (int) (_startPosY + airplaneHeight* 0.21)),
-            new Point((int)(_startPosX + airplaneWidth* 0.13), (int) (_startPosY + airplaneHeight* 0.24)),
-            new Point((int)(_startPosX + airplaneWidth* 0.2), (int) (_startPosY + airplaneHeight* 0.28)),
-            new Point((int)(_startPosX + airplaneWidth * 0.25), (int)(_startPosY + airplaneHeight * 0.26)),
-            new Point((int)(_startPosX + airplaneWidth * 0.35), (int)(_startPosY + airplaneHeight * 0.2)),
-            new Point((int)(_startPosX + airplaneWidth * 0.33), (int)(_startPosY + airplaneHeight * 0.17)),
-            new Point((int)(_startPosX + airplaneWidth * 0.23), (int)(_startPosY + airplaneHeight * 0.19)),
-            };
+                {
+                new Point((int)(_startPosX + airplaneWidth* 0.18), (int) (_startPosY + airplaneHeight* 0.19)),
+                new Point((int)(_startPosX + airplaneWidth* 0.1), (int) (_startPosY + airplaneHeight* 0.21)),
+                new Point((int)(_startPosX + airplaneWidth* 0.13), (int) (_startPosY + airplaneHeight* 0.24)),
+                new Point((int)(_startPosX + airplaneWidth* 0.2), (int) (_startPosY + airplaneHeight* 0.28)),
+                new Point((int)(_startPosX + airplaneWidth * 0.25), (int)(_startPosY + airplaneHeight * 0.26)),
+                new Point((int)(_startPosX + airplaneWidth * 0.35), (int)(_startPosY + airplaneHeight * 0.2)),
+                new Point((int)(_startPosX + airplaneWidth * 0.33), (int)(_startPosY + airplaneHeight * 0.17)),
+                new Point((int)(_startPosX + airplaneWidth * 0.23), (int)(_startPosY + airplaneHeight * 0.19)),
+                };
                 g.FillPolygon(korpus, pointSportTail);// STail
             }
 
@@ -82,11 +82,11 @@ namespace Airplane1
             {
                 Point[] pointSecondFloor =
                 {
-            new Point((int)(_startPosX+airplaneWidth*0.15),(int)( _startPosY+airplaneHeight*0.47)),
-            new Point((int)(_startPosX+airplaneWidth*0.1),(int)( _startPosY+airplaneHeight*0.33)),
-            new Point((int)(_startPosX+airplaneWidth*0.8),(int)( _startPosY+airplaneHeight*0.33)),
-            new Point((int)(_startPosX+airplaneWidth*0.9),(int)( _startPosY+airplaneHeight*0.47))
-            };
+                new Point((int)(_startPosX+airplaneWidth*0.15),(int)( _startPosY+airplaneHeight*0.47)),
+                new Point((int)(_startPosX+airplaneWidth*0.1),(int)( _startPosY+airplaneHeight*0.33)),
+                new Point((int)(_startPosX+airplaneWidth*0.8),(int)( _startPosY+airplaneHeight*0.33)),
+                new Point((int)(_startPosX+airplaneWidth*0.9),(int)( _startPosY+airplaneHeight*0.47))
+                };
                 g.FillPolygon(korpus, pointSecondFloor);// Korpus
 
                 //Door
@@ -108,14 +108,13 @@ namespace Airplane1
             if (HasMarketLine)
             {
                 Point[] pointMarketLine =
-            {
-            new Point((int)(_startPosX+airplaneWidth*0.15),(int)( _startPosY+airplaneHeight*0.47)),
-            new Point((int)(_startPosX+airplaneWidth*0.64),(int)( _startPosY+airplaneHeight*0.63)),
-            new Point((int)(_startPosX+airplaneWidth*0.9),(int)( _startPosY+airplaneHeight*0.63)),
-            new Point((int)(_startPosX+airplaneWidth*0.37),(int)( _startPosY+airplaneHeight*0.47))
-            };
+                {
+                new Point((int)(_startPosX+airplaneWidth*0.15),(int)( _startPosY+airplaneHeight*0.47)),
+                new Point((int)(_startPosX+airplaneWidth*0.64),(int)( _startPosY+airplaneHeight*0.63)),
+                new Point((int)(_startPosX+airplaneWidth*0.9),(int)( _startPosY+airplaneHeight*0.63)),
+                new Point((int)(_startPosX+airplaneWidth*0.37),(int)( _startPosY+airplaneHeight*0.47))
+                };
                 g.FillPolygon(dopcolor, pointMarketLine);// SLine
-
             }
 
             if (HasIlluminator)

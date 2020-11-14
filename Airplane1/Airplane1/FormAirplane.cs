@@ -6,7 +6,6 @@ namespace Airplane1
 {
     public partial class FormAirplane : Form
     {
-
         private ITransport airplan;
 
         public FormAirplane()

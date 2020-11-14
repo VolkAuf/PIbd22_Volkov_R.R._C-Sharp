@@ -6,55 +6,117 @@ namespace Airplane1
 {
     public partial class FormAerodrome : Form
     {
-        private readonly Aerodrome<Airplane> aerodrome;
+        private readonly AerodromeCollection aerodromeCollection;
 
         public FormAerodrome()
         {
             InitializeComponent();
-            aerodrome = new Aerodrome<Airplane>(pictureBoxAerodrome.Width, pictureBoxAerodrome.Height);
-            Draw();
+            aerodromeCollection = new AerodromeCollection(pictureBoxAerodrome.Width, pictureBoxAerodrome.Height);
         }
+
+        /// <summary>
+        /// Заполнение listBoxLevels
+        /// </summary>
+        private void ReloadLevels()
+        {
+            int index = listBoxAerodrome.SelectedIndex;
+            listBoxAerodrome.Items.Clear();
+            for (int i = 0; i < aerodromeCollection.Keys.Count; i++)
+            {
+                listBoxAerodrome.Items.Add(aerodromeCollection.Keys[i]);
+            }
+            if (listBoxAerodrome.Items.Count > 0 && (index == -1 || index >= listBoxAerodrome.Items.Count))
+            {
+                listBoxAerodrome.SelectedIndex = 0;
+            }
+            else if (listBoxAerodrome.Items.Count > 0 && index > -1 && index < listBoxAerodrome.Items.Count)
+            {
+                listBoxAerodrome.SelectedIndex = index;
+            }
+        }
+
         public void Draw()
         {
             Bitmap bmp = new Bitmap(pictureBoxAerodrome.Width, pictureBoxAerodrome.Height);
             Graphics gr = Graphics.FromImage(bmp);
-            aerodrome.Draw(gr);
+
+            if (listBoxAerodrome.SelectedIndex > -1)
+            {
+                aerodromeCollection[listBoxAerodrome.SelectedItem.ToString()].Draw(gr);
+            }
+            else
+            {
+                pictureBoxAerodrome.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            }
             pictureBoxAerodrome.Image = bmp;
         }
 
+        private void buttonAddAerodrome_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBoxNewLevel.Text))
+            {
+                MessageBox.Show("Get Aerodrome Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            aerodromeCollection.AddAerodrome(textBoxNewLevel.Text);
+            ReloadLevels();
+        }
+
+        private void buttonDeleteAerodrome_Click(object sender, EventArgs e)
+        {
+            if (listBoxAerodrome.SelectedIndex > -1)
+            {
+                if (MessageBox.Show($"Delete aerodrome {listBoxAerodrome.SelectedItem.ToString()}?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    aerodromeCollection.DeleteAerodrome(listBoxAerodrome.SelectedItem.ToString());
+                    ReloadLevels();
+                }
+                Draw();
+            }
+        }
+
+
         private void buttonSetAirplane_Click(object sender, EventArgs e)
         {
-            ColorDialog dialog = new ColorDialog();
-            if (dialog.ShowDialog() == DialogResult.OK)
+            if (listBoxAerodrome.SelectedIndex > -1)
             {
-                Airplane airplane = new Airplane(100, 1000, dialog.Color);
-                if (aerodrome + airplane)
+                ColorDialog dialog = new ColorDialog();
+                if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    Draw();
-                }
-                else
-                {
-                    MessageBox.Show("Парковка переполнена");
+                    Airplane airplane = new Airplane(100, 1000, dialog.Color);
+                    if (aerodromeCollection[listBoxAerodrome.SelectedItem.ToString()] + airplane)
+                    {
+                        Draw();
+                    }
+                    else
+                    {
+                        MessageBox.Show("aerodrome is full");
+                    }
                 }
             }
         }
 
         private void buttonSetAirbus_Click(object sender, EventArgs e)
         {
-            ColorDialog dialog = new ColorDialog();
-            if (dialog.ShowDialog() == DialogResult.OK)
+            if (listBoxAerodrome.SelectedIndex > -1)
             {
-                ColorDialog dialogDop = new ColorDialog();
-                if (dialogDop.ShowDialog() == DialogResult.OK)
+                ColorDialog dialog = new ColorDialog();
+                if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    Airbus airbus = new Airbus(100, 1000, dialog.Color, dialogDop.Color, true, true, true, true, true, true);
-                    if (aerodrome + airbus)
+                    ColorDialog dialogDop = new ColorDialog();
+
+                    if (dialogDop.ShowDialog() == DialogResult.OK)
                     {
-                        Draw();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Парковка переполнена");
+                        Airbus airplane = new Airbus(100, 1000, dialog.Color, dialogDop.Color, true, true, true, true, true, true);
+
+                        if (aerodromeCollection[listBoxAerodrome.SelectedItem.ToString()] + airplane)
+                        {
+                            Draw();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Aerodrome is full");
+                        }
                     }
                 }
             }
@@ -62,21 +124,23 @@ namespace Airplane1
 
         private void buttonTakeAirplane_Click(object sender, EventArgs e)
         {
-            if (maskedTextBoxNumber.Text != "")
+            if (listBoxAerodrome.SelectedIndex > -1 && maskedTextBoxNumber.Text != "")
             {
-                int index = Convert.ToInt32(maskedTextBoxNumber.Text);
-                if (index >= 0 && index < 9)
+                AirTransport airplane = aerodromeCollection[listBoxAerodrome.SelectedItem.ToString()] - Convert.ToInt32(maskedTextBoxNumber.Text);
+
+                if (airplane != null)
                 {
-                    Airplane airplane = aerodrome - index;
-                    if (airplane != null)
-                    {
-                        FormAirplane form = new FormAirplane();
-                        form.setAirplane(airplane);
-                        form.ShowDialog();
-                    }
-                    Draw();
+                    FormAirplane form = new FormAirplane();
+                    form.setAirplane(airplane);
+                    form.ShowDialog();
                 }
+                Draw();
             }
+        }
+
+        private void listBoxAerodrome_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Draw();
         }
     }
 }
