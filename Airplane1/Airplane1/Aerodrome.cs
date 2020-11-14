@@ -35,20 +35,25 @@ namespace Airplane1
         public static T operator -(Aerodrome<T> p, int index)
         {
             // Прописать логику для вычитания
-            if (index < -1 || index > p._places.Count)
+            if (index < -1 || index >= p._places.Count)
             {
                 return null;
             }
-            T airplane = p._places[index];
+            T airtransport = p._places[index];
             p._places.RemoveAt(index);
-            return airplane;
+            return airtransport;
+        }
+
+        private bool CheckPlace(int placeIndex)
+        {
+            return _places[placeIndex] == null;
         }
 
         public void Draw(Graphics g)
         {
             int marginY = 10;
             DrawMarking(g);
-            for (int i = 0; i < _places.Count; ++i)
+            for (int i = 0; i < _places.Count; ++i) 
             {
                 _places[i].SetPosition(i / 4 * _placeSizeWidth, i % 4 * _placeSizeHeight + marginY, pictureWidth, pictureHeight);
                 _places[i].DrawTransport(g);

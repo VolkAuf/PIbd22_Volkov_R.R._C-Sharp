@@ -12,6 +12,11 @@ namespace Airplane1
         public bool HasIlluminator { private set; get; }
         public bool HasSecondFloor { private set; get; }
 
+        public void SetDopColor(Color color)
+        {
+            DopColor = color;
+        }
+
         public Airbus(int maxSpeed, float weight, Color mainColor, Color dopColor, bool hasBackTurbine, bool hasSideTurbine,
             bool hasMarketLine, bool hasRegulTail, bool hasIlluminator, bool hasSecondFloor)
                 : base(maxSpeed, weight, mainColor, 150, 80)
@@ -31,7 +36,7 @@ namespace Airplane1
             Pen shestern = new Pen(Color.White);
             Brush korpus = new SolidBrush(MainColor);
             Brush turbin = new SolidBrush(Color.Black);
-            Brush illuminator = new SolidBrush(Color.FloralWhite);
+            Brush illuminator = new SolidBrush(DopColor);
             Brush dopcolor = new SolidBrush(DopColor);
 
             if (HasBackTurbine)

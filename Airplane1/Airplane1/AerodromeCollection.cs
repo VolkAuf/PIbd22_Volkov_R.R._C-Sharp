@@ -6,11 +6,11 @@ namespace Airplane1
     public class AerodromeCollection
     {
         /// <summary>
-        /// Словарь (хранилище) с парковками
+        /// Словарь (хранилище) с аэродромами
         /// </summary>
         private readonly Dictionary<string, Aerodrome<AirTransport>> aerodromeStages;
         /// <summary>
-        /// Возвращение списка названий праковок
+        /// Возвращение списка названий аэродромов
         /// </summary>
         public List<string> Keys => aerodromeStages.Keys.ToList();
         /// <summary>
@@ -34,9 +34,9 @@ namespace Airplane1
             this.pictureHeight = pictureHeight;
         }
         /// <summary>
-        /// Добавление парковки
+        /// Добавление аэродроме
         /// </summary>
-        /// <param name="name">Название парковки</param>
+        /// <param name="name">Название аэродрома</param>
         public void AddAerodrome(string name)
         {
             if (Keys.Contains(name))
@@ -46,9 +46,9 @@ namespace Airplane1
             aerodromeStages.Add(name, new Aerodrome<AirTransport>(pictureWidth, pictureHeight));
         }
         /// <summary>
-        /// Удаление парковки
+        /// Удаление аэродрома
         /// </summary>
-        /// <param name="name">Название парковки</param>
+        /// <param name="name">Название аэродрома</param>
         public void DeleteAerodrome(string name)
         {
             if (aerodromeStages.ContainsKey(name))
@@ -57,7 +57,7 @@ namespace Airplane1
             }
         }
         /// <summary>
-        /// Доступ к парковке
+        /// Доступ к аэродрому
         /// </summary>
         /// <param name="ind"></param>
         /// <returns></returns>
