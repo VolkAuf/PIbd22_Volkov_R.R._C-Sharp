@@ -87,20 +87,17 @@ namespace Airplane1
 
         private void labelAirplane_MouseDown(object sender, MouseEventArgs e)
         {
-            labelAirplane.DoDragDrop(new Airplane((int)numericUpDownMaxSpeed.Value, (int)numericUpDownWeight.Value, Color.Cyan),
-                DragDropEffects.Move | DragDropEffects.Copy);
+            labelAirplane.DoDragDrop(labelAirplane.Text, DragDropEffects.Move | DragDropEffects.Copy);
         }
 
         private void labelAirbus_MauseDown(object sender, MouseEventArgs e)
         {
-            labelAirbus.DoDragDrop(new Airbus((int)numericUpDownMaxSpeed.Value, (int)numericUpDownWeight.Value, Color.Cyan, Color.Black,
-                   checkBoxBackTurbin.Checked, checkBoxSideTurbin.Checked, checkBoxMarketLine.Checked, checkBoxRegulTail.Checked,
-                   checkBoxIlluminator.Checked, checkBoxSecondFloor.Checked), DragDropEffects.Move | DragDropEffects.Copy);
+            labelAirbus.DoDragDrop(labelAirbus.Text, DragDropEffects.Move | DragDropEffects.Copy);
         }
 
         private void panelModelTransport_DragEnter(object sender, DragEventArgs e)
         {
-            if (e.Data.GetDataPresent(typeof(Airplane)) || e.Data.GetDataPresent(typeof(Airbus)))
+            if (e.Data.GetDataPresent(DataFormats.Text))
             {
                 e.Effect = DragDropEffects.Copy;
             }
@@ -112,13 +109,15 @@ namespace Airplane1
 
         private void panelModelTransport_DragDrop(object sender, DragEventArgs e)
         {
-            if (e.Data.GetData(typeof(Airplane)) is Airplane)
+            switch (e.Data.GetData(DataFormats.Text).ToString())
             {
-                airplane = e.Data.GetData(typeof(Airplane)) as Airplane;
-            }
-            else
-            {
-                airplane = e.Data.GetData(typeof(Airbus)) as Airbus;
+                case "Airplane":
+                    airplane = new Airplane((int)numericUpDownMaxSpeed.Value, (int)numericUpDownWeight.Value, Color.Cyan);
+                    break;
+                case "Airbus":
+                    airplane = new Airbus((int)numericUpDownMaxSpeed.Value, (int)numericUpDownWeight.Value, Color.Cyan, Color.Black,
+                    checkBoxBackTurbin.Checked, checkBoxSideTurbin.Checked, checkBoxMarketLine.Checked, checkBoxRegulTail.Checked, checkBoxIlluminator.Checked, checkBoxSecondFloor.Checked);
+                    break;
             }
             DrawAirplane();
         }

@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace Airplane1
 {
@@ -6,6 +7,7 @@ namespace Airplane1
     {
         protected readonly int airplaneWidth = 130;
         protected readonly int airplaneHeight = 90;
+        protected readonly char separator = ';';
 
         public Airplane(int maxSpeed, float weigth, Color mainColor)
         {
@@ -23,19 +25,28 @@ namespace Airplane1
             this.airplaneHeight = airplaneHeight;
         }
 
+        public Airplane(string info)
+        {
+            string[] strs = info.Split(separator);
+            if (strs.Length == 3)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+            }
+        }
+
         public override void MoveTransport(Direction direction)
         {
             float step = MaxSpeed * 100 / Weight;
             switch (direction)
             {
-                // вправо
                 case Direction.Right:
                     if (_startPosX + step < _pictureWidth - airplaneWidth)
                     {
                         _startPosX += step;
                     }
                     break;
-                //влево
                 case Direction.Left:
                     if (_startPosX - step > 0)
                     {
@@ -57,7 +68,6 @@ namespace Airplane1
                         _startPosY = 0;
                     }
                     break;
-                //вниз
                 case Direction.Down:
                     if (_startPosY + step < _pictureHeight - airplaneHeight)
                     {
@@ -65,6 +75,11 @@ namespace Airplane1
                     }
                     break;
             }
+        }
+
+        public override string ToString()
+        {
+            return $"{MaxSpeed}{separator}{Weight}{separator}{MainColor.Name}";
         }
 
         public override void DrawTransport(Graphics g)

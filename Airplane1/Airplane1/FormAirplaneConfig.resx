@@ -117,11 +117,155 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="&gt;&gt;checkBoxIlluminator.Name" xml:space="preserve">
+    <value>checkBoxIlluminator</value>
+  </data>
+  <data name="&gt;&gt;checkBoxIlluminator.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxIlluminator.Parent" xml:space="preserve">
+    <value>groupBoxItemSelection</value>
+  </data>
+  <data name="&gt;&gt;checkBoxIlluminator.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;checkBoxMarketLine.Name" xml:space="preserve">
+    <value>checkBoxMarketLine</value>
+  </data>
+  <data name="&gt;&gt;checkBoxMarketLine.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxMarketLine.Parent" xml:space="preserve">
+    <value>groupBoxItemSelection</value>
+  </data>
+  <data name="&gt;&gt;checkBoxMarketLine.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;checkBoxRegulTail.Name" xml:space="preserve">
+    <value>checkBoxRegulTail</value>
+  </data>
+  <data name="&gt;&gt;checkBoxRegulTail.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxRegulTail.Parent" xml:space="preserve">
+    <value>groupBoxItemSelection</value>
+  </data>
+  <data name="&gt;&gt;checkBoxRegulTail.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;checkBoxBackTurbin.Name" xml:space="preserve">
+    <value>checkBoxBackTurbin</value>
+  </data>
+  <data name="&gt;&gt;checkBoxBackTurbin.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxBackTurbin.Parent" xml:space="preserve">
+    <value>groupBoxItemSelection</value>
+  </data>
+  <data name="&gt;&gt;checkBoxBackTurbin.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;checkBoxSideTurbin.Name" xml:space="preserve">
+    <value>checkBoxSideTurbin</value>
+  </data>
+  <data name="&gt;&gt;checkBoxSideTurbin.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxSideTurbin.Parent" xml:space="preserve">
+    <value>groupBoxItemSelection</value>
+  </data>
+  <data name="&gt;&gt;checkBoxSideTurbin.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;checkBoxSecondFloor.Name" xml:space="preserve">
+    <value>checkBoxSecondFloor</value>
+  </data>
+  <data name="&gt;&gt;checkBoxSecondFloor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxSecondFloor.Parent" xml:space="preserve">
+    <value>groupBoxItemSelection</value>
+  </data>
+  <data name="&gt;&gt;checkBoxSecondFloor.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;numericUpDownWeight.Name" xml:space="preserve">
+    <value>numericUpDownWeight</value>
+  </data>
+  <data name="&gt;&gt;numericUpDownWeight.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;numericUpDownWeight.Parent" xml:space="preserve">
+    <value>groupBoxItemSelection</value>
+  </data>
+  <data name="&gt;&gt;numericUpDownWeight.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;numericUpDownMaxSpeed.Name" xml:space="preserve">
+    <value>numericUpDownMaxSpeed</value>
+  </data>
+  <data name="&gt;&gt;numericUpDownMaxSpeed.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;numericUpDownMaxSpeed.Parent" xml:space="preserve">
+    <value>groupBoxItemSelection</value>
+  </data>
+  <data name="&gt;&gt;numericUpDownMaxSpeed.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;labelWeight.Name" xml:space="preserve">
+    <value>labelWeight</value>
+  </data>
+  <data name="&gt;&gt;labelWeight.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelWeight.Parent" xml:space="preserve">
+    <value>groupBoxItemSelection</value>
+  </data>
+  <data name="&gt;&gt;labelWeight.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;labelMaxSpeed.Name" xml:space="preserve">
+    <value>labelMaxSpeed</value>
+  </data>
+  <data name="&gt;&gt;labelMaxSpeed.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelMaxSpeed.Parent" xml:space="preserve">
+    <value>groupBoxItemSelection</value>
+  </data>
+  <data name="&gt;&gt;labelMaxSpeed.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="groupBoxItemSelection.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 300</value>
+  </data>
+  <data name="groupBoxItemSelection.Size" type="System.Drawing.Size, System.Drawing">
+    <value>450, 140</value>
+  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="groupBoxItemSelection.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="groupBoxItemSelection.Text" xml:space="preserve">
+    <value>groupBoxAirplane</value>
+  </data>
+  <data name="&gt;&gt;groupBoxItemSelection.Name" xml:space="preserve">
+    <value>groupBoxItemSelection</value>
+  </data>
+  <data name="&gt;&gt;groupBoxItemSelection.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBoxItemSelection.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;groupBoxItemSelection.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
   <data name="checkBoxIlluminator.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="checkBoxIlluminator.Location" type="System.Drawing.Point, System.Drawing">
     <value>330, 90</value>
   </data>
@@ -377,29 +521,53 @@
   <data name="&gt;&gt;labelMaxSpeed.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="groupBoxItemSelection.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 300</value>
+  <data name="&gt;&gt;labelAirbus.Name" xml:space="preserve">
+    <value>labelAirbus</value>
   </data>
-  <data name="groupBoxItemSelection.Size" type="System.Drawing.Size, System.Drawing">
-    <value>450, 140</value>
+  <data name="&gt;&gt;labelAirbus.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="groupBoxItemSelection.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;labelAirbus.Parent" xml:space="preserve">
+    <value>groupBoxTypeOfTransport</value>
+  </data>
+  <data name="&gt;&gt;labelAirbus.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="groupBoxItemSelection.Text" xml:space="preserve">
-    <value>groupBoxAirplane</value>
+  <data name="&gt;&gt;labelAirplane.Name" xml:space="preserve">
+    <value>labelAirplane</value>
   </data>
-  <data name="&gt;&gt;groupBoxItemSelection.Name" xml:space="preserve">
-    <value>groupBoxItemSelection</value>
+  <data name="&gt;&gt;labelAirplane.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;groupBoxItemSelection.Type" xml:space="preserve">
+  <data name="&gt;&gt;labelAirplane.Parent" xml:space="preserve">
+    <value>groupBoxTypeOfTransport</value>
+  </data>
+  <data name="&gt;&gt;labelAirplane.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="groupBoxTypeOfTransport.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 10</value>
+  </data>
+  <data name="groupBoxTypeOfTransport.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 250</value>
+  </data>
+  <data name="groupBoxTypeOfTransport.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="groupBoxTypeOfTransport.Text" xml:space="preserve">
+    <value>Type Of Transport</value>
+  </data>
+  <data name="&gt;&gt;groupBoxTypeOfTransport.Name" xml:space="preserve">
+    <value>groupBoxTypeOfTransport</value>
+  </data>
+  <data name="&gt;&gt;groupBoxTypeOfTransport.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;groupBoxItemSelection.Parent" xml:space="preserve">
+  <data name="&gt;&gt;groupBoxTypeOfTransport.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;groupBoxItemSelection.ZOrder" xml:space="preserve">
-    <value>5</value>
+  <data name="&gt;&gt;groupBoxTypeOfTransport.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="labelAirbus.Location" type="System.Drawing.Point, System.Drawing">
     <value>25, 135</value>
@@ -455,39 +623,6 @@
   <data name="&gt;&gt;labelAirplane.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="groupBoxTypeOfTransport.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 10</value>
-  </data>
-  <data name="groupBoxTypeOfTransport.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 250</value>
-  </data>
-  <data name="groupBoxTypeOfTransport.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="groupBoxTypeOfTransport.Text" xml:space="preserve">
-    <value>Type Of Transport</value>
-  </data>
-  <data name="&gt;&gt;groupBoxTypeOfTransport.Name" xml:space="preserve">
-    <value>groupBoxTypeOfTransport</value>
-  </data>
-  <data name="&gt;&gt;groupBoxTypeOfTransport.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBoxTypeOfTransport.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;groupBoxTypeOfTransport.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="pictureBoxModelTransport.Location" type="System.Drawing.Point, System.Drawing">
-    <value>25, 25</value>
-  </data>
-  <data name="pictureBoxModelTransport.Size" type="System.Drawing.Size, System.Drawing">
-    <value>220, 200</value>
-  </data>
-  <data name="pictureBoxModelTransport.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
   <data name="&gt;&gt;pictureBoxModelTransport.Name" xml:space="preserve">
     <value>pictureBoxModelTransport</value>
   </data>
@@ -520,6 +655,27 @@
   </data>
   <data name="&gt;&gt;panelModelTransport.ZOrder" xml:space="preserve">
     <value>3</value>
+  </data>
+  <data name="pictureBoxModelTransport.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 25</value>
+  </data>
+  <data name="pictureBoxModelTransport.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 200</value>
+  </data>
+  <data name="pictureBoxModelTransport.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxModelTransport.Name" xml:space="preserve">
+    <value>pictureBoxModelTransport</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxModelTransport.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxModelTransport.Parent" xml:space="preserve">
+    <value>panelModelTransport</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxModelTransport.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="labelDopColor.Location" type="System.Drawing.Point, System.Drawing">
     <value>150, 150</value>

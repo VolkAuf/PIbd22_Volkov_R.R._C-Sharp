@@ -39,18 +39,25 @@
             this.buttonAddAerodrome = new System.Windows.Forms.Button();
             this.buttonDeleteAerodrome = new System.Windows.Forms.Button();
             this.buttonAddAirTransport = new System.Windows.Forms.Button();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.myFileToolStripMenuItemAerodrome = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItemAerodrome = new System.Windows.Forms.ToolStripMenuItem();
+            this.downloadToolStripMenuItemAerodrome = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAerodrome)).BeginInit();
             this.groupBoxAerodrome.SuspendLayout();
+            this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBoxAerodrome
             // 
             this.pictureBoxAerodrome.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.pictureBoxAerodrome.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.pictureBoxAerodrome.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxAerodrome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.pictureBoxAerodrome.Location = new System.Drawing.Point(0, 40);
             this.pictureBoxAerodrome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxAerodrome.Name = "pictureBoxAerodrome";
-            this.pictureBoxAerodrome.Size = new System.Drawing.Size(830, 540);
+            this.pictureBoxAerodrome.Size = new System.Drawing.Size(830, 500);
             this.pictureBoxAerodrome.TabIndex = 0;
             this.pictureBoxAerodrome.TabStop = false;
             // 
@@ -155,6 +162,49 @@
             this.buttonAddAirTransport.UseVisualStyleBackColor = true;
             this.buttonAddAirTransport.Click += new System.EventHandler(this.buttonAddAirTransport_Click);
             // 
+            // menuStrip
+            // 
+            this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.myFileToolStripMenuItemAerodrome});
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(982, 28);
+            this.menuStrip.TabIndex = 10;
+            this.menuStrip.Text = "menuStrip";
+            // 
+            // myFileToolStripMenuItemAerodrome
+            // 
+            this.myFileToolStripMenuItemAerodrome.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveToolStripMenuItemAerodrome,
+            this.downloadToolStripMenuItemAerodrome});
+            this.myFileToolStripMenuItemAerodrome.Name = "myFileToolStripMenuItemAerodrome";
+            this.myFileToolStripMenuItemAerodrome.Size = new System.Drawing.Size(46, 24);
+            this.myFileToolStripMenuItemAerodrome.Text = "File";
+            // 
+            // saveToolStripMenuItemAerodrome
+            // 
+            this.saveToolStripMenuItemAerodrome.Name = "saveToolStripMenuItemAerodrome";
+            this.saveToolStripMenuItemAerodrome.Size = new System.Drawing.Size(161, 26);
+            this.saveToolStripMenuItemAerodrome.Text = "Save";
+            this.saveToolStripMenuItemAerodrome.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
+            // downloadToolStripMenuItemAerodrome
+            // 
+            this.downloadToolStripMenuItemAerodrome.Name = "downloadToolStripMenuItemAerodrome";
+            this.downloadToolStripMenuItemAerodrome.Size = new System.Drawing.Size(161, 26);
+            this.downloadToolStripMenuItemAerodrome.Text = "Download";
+            this.downloadToolStripMenuItemAerodrome.Click += new System.EventHandler(this.downloadToolStripMenuItem_Click);
+            // 
+            // saveFileDialog
+            // 
+            this.saveFileDialog.Filter = "txt file | *.txt";
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog";
+            this.openFileDialog.Filter = "txt file | *.txt";
+            // 
             // FormAerodrome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -168,12 +218,16 @@
             this.Controls.Add(this.listBoxAerodrome);
             this.Controls.Add(this.groupBoxAerodrome);
             this.Controls.Add(this.pictureBoxAerodrome);
+            this.Controls.Add(this.menuStrip);
+            this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormAerodrome";
             this.Text = "Аэродром";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAerodrome)).EndInit();
             this.groupBoxAerodrome.ResumeLayout(false);
             this.groupBoxAerodrome.PerformLayout();
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -192,5 +246,11 @@
         private System.Windows.Forms.Button buttonAddAerodrome;
         private System.Windows.Forms.Button buttonDeleteAerodrome;
         private System.Windows.Forms.Button buttonAddAirTransport;
+        private System.Windows.Forms.MenuStrip menuStrip;
+        private System.Windows.Forms.ToolStripMenuItem myFileToolStripMenuItemAerodrome;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItemAerodrome;
+        private System.Windows.Forms.ToolStripMenuItem downloadToolStripMenuItemAerodrome;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }
