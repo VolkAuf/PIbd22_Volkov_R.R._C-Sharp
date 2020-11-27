@@ -8,7 +8,6 @@ namespace Airplane1
     {
         private AirTransport airplane = null;
         private Action<AirTransport> eventAddAirplane;
-        private readonly Random rnd = new Random();
 
         public FormAirplaneConfig()
         {
@@ -68,7 +67,7 @@ namespace Airplane1
             {
                 Bitmap bmp = new Bitmap(pictureBoxModelTransport.Width, pictureBoxModelTransport.Height);
                 Graphics gr = Graphics.FromImage(bmp);
-                airplane.SetPosition(5, 5, pictureBoxModelTransport.Width, pictureBoxModelTransport.Height);
+                airplane.SetPosition(5, 50, pictureBoxModelTransport.Width, pictureBoxModelTransport.Height);
                 airplane.DrawTransport(gr);
                 pictureBoxModelTransport.Image = bmp;
             }
@@ -88,13 +87,15 @@ namespace Airplane1
 
         private void labelAirplane_MouseDown(object sender, MouseEventArgs e)
         {
-            labelAirplane.DoDragDrop(new Airplane((int)numericUpDownMaxSpeed.Value, (int)numericUpDownWeight.Value, Color.Cyan), DragDropEffects.Move | DragDropEffects.Copy);
+            labelAirplane.DoDragDrop(new Airplane((int)numericUpDownMaxSpeed.Value, (int)numericUpDownWeight.Value, Color.Cyan),
+                DragDropEffects.Move | DragDropEffects.Copy);
         }
 
         private void labelAirbus_MauseDown(object sender, MouseEventArgs e)
         {
             labelAirbus.DoDragDrop(new Airbus((int)numericUpDownMaxSpeed.Value, (int)numericUpDownWeight.Value, Color.Cyan, Color.Black,
-                   checkBoxBackTurbin.Checked, checkBoxSideTurbin.Checked, checkBoxMarketLine.Checked, checkBoxRegulTail.Checked, checkBoxIlluminator.Checked, checkBoxSecondFloor.Checked), DragDropEffects.Move | DragDropEffects.Copy);
+                   checkBoxBackTurbin.Checked, checkBoxSideTurbin.Checked, checkBoxMarketLine.Checked, checkBoxRegulTail.Checked,
+                   checkBoxIlluminator.Checked, checkBoxSecondFloor.Checked), DragDropEffects.Move | DragDropEffects.Copy);
         }
 
         private void panelModelTransport_DragEnter(object sender, DragEventArgs e)
@@ -114,8 +115,6 @@ namespace Airplane1
             if (e.Data.GetData(typeof(Airplane)) is Airplane)
             {
                 airplane = e.Data.GetData(typeof(Airplane)) as Airplane;
-
-
             }
             else
             {

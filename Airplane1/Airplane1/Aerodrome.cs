@@ -48,7 +48,7 @@ namespace Airplane1
         {
             int marginY = 10;
             DrawMarking(g);
-            for (int i = 0; i < _places.Count; ++i) 
+            for (int i = 0; i < _places.Count; ++i)
             {
                 _places[i].SetPosition(i / 4 * _placeSizeWidth, i % 4 * _placeSizeHeight + marginY, pictureWidth, pictureHeight);
                 _places[i].DrawTransport(g);

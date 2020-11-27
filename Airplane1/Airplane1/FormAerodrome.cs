@@ -70,7 +70,6 @@ namespace Airplane1
             }
         }
 
-
         private void buttonSetAirplane_Click(object sender, EventArgs e)
         {
             if (listBoxAerodrome.SelectedIndex > -1)
