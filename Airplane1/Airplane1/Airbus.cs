@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace Airplane1
 {
@@ -28,6 +29,31 @@ namespace Airplane1
             HasRegulTail = hasRegulTail;
             HasIlluminator = hasIlluminator;
             HasSecondFloor = hasSecondFloor;
+        }
+
+        public Airbus(string info) : base(info)
+        {
+            string[] strs = info.Split(separator);
+            if (strs.Length == 10)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+                DopColor = Color.FromName(strs[3]);
+                HasBackTurbine = Convert.ToBoolean(strs[4]);
+                HasSideTurbine = Convert.ToBoolean(strs[5]);
+                HasMarketLine = Convert.ToBoolean(strs[6]);
+                HasRegulTail = Convert.ToBoolean(strs[7]);
+                HasIlluminator = Convert.ToBoolean(strs[8]);
+                HasSecondFloor = Convert.ToBoolean(strs[9]);
+            }
+        }
+
+        public override string ToString()
+        {
+            return $"{base.ToString()}{separator}{DopColor.Name}{separator}{HasBackTurbine}" +
+                $"{separator}{HasSideTurbine}{separator}{HasMarketLine}{separator}{HasRegulTail}" +
+                $"{separator}{HasIlluminator}{separator}{HasSecondFloor}";
         }
 
         public override void DrawTransport(Graphics g)

@@ -37,13 +37,13 @@ namespace Airplane1
 
         public void Draw()
         {
+            Bitmap bmp = new Bitmap(pictureBoxAerodrome.Width, pictureBoxAerodrome.Height);
+            Graphics gr = Graphics.FromImage(bmp);
             if (listBoxAerodrome.SelectedIndex > -1)
             {
-                Bitmap bmp = new Bitmap(pictureBoxAerodrome.Width, pictureBoxAerodrome.Height);
-                Graphics gr = Graphics.FromImage(bmp);
                 aerodromeCollection[listBoxAerodrome.SelectedItem.ToString()].Draw(gr);
-                pictureBoxAerodrome.Image = bmp;
             }
+            pictureBoxAerodrome.Image = bmp;
         }
 
         private void buttonAddAerodrome_Click(object sender, EventArgs e)
@@ -155,6 +155,48 @@ namespace Airplane1
                 else
                 {
                     MessageBox.Show("The airplane failed to deliver");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Обработка нажатия пункта меню "Save"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                if (aerodromeCollection.SaveData(saveFileDialog.FileName))
+                {
+                    MessageBox.Show("Сохранение прошло успешно", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Не сохранилось", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Обработка нажатия пункта меню "Download"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void downloadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                if (aerodromeCollection.LoadData(openFileDialog.FileName))
+                {
+                    MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ReloadLevels();
+                    Draw();
+                }
+                else
+                {
+                    MessageBox.Show("Не загрузили", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

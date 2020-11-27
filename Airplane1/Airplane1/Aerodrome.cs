@@ -5,43 +5,90 @@ namespace Airplane1
 {
     public class Aerodrome<T> where T : class, ITransport
     {
+        /// <summary>
+        /// Список объектов, которые храним
+        /// </summary>
         private readonly List<T> _places;
+        /// <summary>
+        /// Максимальное количество мест на аэродроме
+        /// </summary>
+        private readonly int _maxCount;
+        /// <summary>
+        /// Ширина окна отрисовки
+        /// </summary>
         private readonly int pictureWidth;
+        /// <summary>
+        /// Высота окна отрисовки
+        /// </summary>
         private readonly int pictureHeight;
+        /// <summary>
+        /// Размер парковочного места (ширина)
+        /// </summary>
         private readonly int _placeSizeWidth = 170;
+        /// <summary>
+        /// Размер парковочного места (высота)
+        /// </summary>
         private readonly int _placeSizeHeight = 100;
-        private readonly int size;
-
+        /// <summary>
+        /// Конструктор
+        /// </summary>
+        /// <param name="picWidth">Рамзер аэродрома - ширина</param>
+        /// <param name="picHeight">Рамзер аэродрома - высота</param>
         public Aerodrome(int picWidth, int picHeight)
         {
             int width = picWidth / _placeSizeWidth;
             int height = picHeight / _placeSizeHeight;
-            _places = new List<T>();
-            size = width * height;
+            _maxCount = width * height;
             pictureWidth = picWidth;
             pictureHeight = picHeight;
+            _places = new List<T>();
         }
-
+        /// <summary>
+        /// Перегрузка оператора сложения
+        /// Логика действия: на аэродром добавляется самолёт
+        /// </summary>
+        /// <param name="a">аэродром</param>
+        /// <param name="airplane">Добавляемый самолёт</param>
+        /// <returns></returns>
         public static bool operator +(Aerodrome<T> a, T airplane)
         {
-            if (a._places.Count >= a.size)
+            if (a._places.Count >= a._maxCount)
             {
                 return false;
             }
             a._places.Add(airplane);
             return true;
         }
-
-        public static T operator -(Aerodrome<T> p, int index)
+        /// <summary>
+        /// Перегрузка оператора вычитания
+        /// Логика действия: с аэродрома забираем самолёт
+        /// </summary>
+        /// <param name="a">Аэродром</param>
+        /// <param name="index">Индекс места, с которого пытаемся извлечь объект</param>
+        /// <returns></returns>
+        public static T operator -(Aerodrome<T> a, int index)
         {
-            // Прописать логику для вычитания
-            if (index < -1 || index >= p._places.Count)
+            if (index < 0 || index >= a._places.Count)
             {
                 return null;
             }
-            T airtransport = p._places[index];
-            p._places.RemoveAt(index);
-            return airtransport;
+            T airplane = a._places[index];
+            a._places.RemoveAt(index);
+            return airplane;
+        }
+
+        /// <summary>
+        /// Функция получения элементы из списка
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public T GetNext(int index)
+        {
+            if (index < 0 || index >= _places.Count)
+            {
+                return null;
+            }
+            return _places[index];
         }
 
         public void Draw(Graphics g)
