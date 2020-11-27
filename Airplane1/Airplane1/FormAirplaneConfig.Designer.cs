@@ -265,7 +265,7 @@
             // 
             // panelORENGE
             // 
-            this.panelORENGE.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.panelORENGE.BackColor = System.Drawing.Color.Coral;
             resources.ApplyResources(this.panelORENGE, "panelORENGE");
             this.panelORENGE.Name = "panelORENGE";
             // 
