@@ -116,11 +116,10 @@ namespace Airplane1
                         }
                     }
                 }
-            return true;
+                return true;
             }
             return false;
         }
-
 
         /// <summary>
         /// Сохранение информации по самолётам на аэродромах в файл
