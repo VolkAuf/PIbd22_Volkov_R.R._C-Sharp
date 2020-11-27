@@ -83,7 +83,7 @@
             // 
             this.maskedTextBoxNumber.Location = new System.Drawing.Point(65, 55);
             this.maskedTextBoxNumber.Margin = new System.Windows.Forms.Padding(4);
-            this.maskedTextBoxNumber.Mask = "0";
+            this.maskedTextBoxNumber.Mask = "00";
             this.maskedTextBoxNumber.Name = "maskedTextBoxNumber";
             this.maskedTextBoxNumber.Size = new System.Drawing.Size(39, 22);
             this.maskedTextBoxNumber.TabIndex = 1;

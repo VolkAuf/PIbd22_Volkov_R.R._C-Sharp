@@ -121,7 +121,7 @@ namespace Airplane1
         {
             if (listBoxAerodrome.SelectedIndex > -1 && maskedTextBoxNumber.Text != "")
             {
-                var airplane = aerodromeCollection[listBoxAerodrome.SelectedItem.ToString()] - Convert.ToInt32(maskedTextBoxNumber.Text);
+                AirTransport airplane = aerodromeCollection[listBoxAerodrome.SelectedItem.ToString()] - Convert.ToInt32(maskedTextBoxNumber.Text);
 
                 if (airplane != null)
                 {
@@ -140,7 +140,7 @@ namespace Airplane1
 
         private void buttonAddAirTransport_Click(object sender, EventArgs e)
         {
-            var formAirplaneConfig = new FormAirplaneConfig();
+            FormAirplaneConfig formAirplaneConfig = new FormAirplaneConfig();
             formAirplaneConfig.AddEvent(AddAirplane);
             formAirplaneConfig.Show();
         }

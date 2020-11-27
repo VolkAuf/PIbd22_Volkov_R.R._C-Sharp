@@ -44,11 +44,6 @@ namespace Airplane1
             return airtransport;
         }
 
-        private bool CheckPlace(int placeIndex)
-        {
-            return _places[placeIndex] == null;
-        }
-
         public void Draw(Graphics g)
         {
             int marginY = 10;

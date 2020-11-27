@@ -7,8 +7,8 @@ namespace Airplane1
     public partial class FormAirplaneConfig : Form
     {
         private AirTransport airplane = null;
-
-        private event AirplaneDelegate eventAddAirplane;
+        private Action<AirTransport> eventAddAirplane;
+        private readonly Random rnd = new Random();
 
         public FormAirplaneConfig()
         {
@@ -74,11 +74,11 @@ namespace Airplane1
             }
         }
 
-        public void AddEvent(AirplaneDelegate ev)
+        public void AddEvent(Action<AirTransport> ev)
         {
             if (eventAddAirplane == null)
             {
-                eventAddAirplane = new AirplaneDelegate(ev);
+                eventAddAirplane = new Action<AirTransport>(ev);
             }
             else
             {
@@ -88,17 +88,18 @@ namespace Airplane1
 
         private void labelAirplane_MouseDown(object sender, MouseEventArgs e)
         {
-            labelAirplane.DoDragDrop(labelAirplane.Text, DragDropEffects.Move | DragDropEffects.Copy);
+            labelAirplane.DoDragDrop(new Airplane((int)numericUpDownMaxSpeed.Value, (int)numericUpDownWeight.Value, Color.Cyan), DragDropEffects.Move | DragDropEffects.Copy);
         }
 
         private void labelAirbus_MauseDown(object sender, MouseEventArgs e)
         {
-            labelAirbus.DoDragDrop(labelAirbus.Text, DragDropEffects.Move | DragDropEffects.Copy);
+            labelAirbus.DoDragDrop(new Airbus((int)numericUpDownMaxSpeed.Value, (int)numericUpDownWeight.Value, Color.Cyan, Color.Black,
+                   checkBoxBackTurbin.Checked, checkBoxSideTurbin.Checked, checkBoxMarketLine.Checked, checkBoxRegulTail.Checked, checkBoxIlluminator.Checked, checkBoxSecondFloor.Checked), DragDropEffects.Move | DragDropEffects.Copy);
         }
 
         private void panelModelTransport_DragEnter(object sender, DragEventArgs e)
         {
-            if (e.Data.GetDataPresent(DataFormats.Text))
+            if (e.Data.GetDataPresent(typeof(Airplane)) || e.Data.GetDataPresent(typeof(Airbus)))
             {
                 e.Effect = DragDropEffects.Copy;
             }
@@ -110,22 +111,22 @@ namespace Airplane1
 
         private void panelModelTransport_DragDrop(object sender, DragEventArgs e)
         {
-            switch (e.Data.GetData(DataFormats.Text).ToString())
+            if (e.Data.GetData(typeof(Airplane)) is Airplane)
             {
-                case "Airplane":
-                    airplane = new Airplane((int)numericUpDownMaxSpeed.Value, (int)numericUpDownWeight.Value, Color.Cyan);
-                    break;
-                case "Airbus":
-                    airplane = new Airbus((int)numericUpDownMaxSpeed.Value, (int)numericUpDownWeight.Value, Color.Cyan, Color.Black,
-                    checkBoxBackTurbin.Checked, checkBoxSideTurbin.Checked, checkBoxMarketLine.Checked, checkBoxRegulTail.Checked, checkBoxIlluminator.Checked, checkBoxSecondFloor.Checked);
-                    break;
+                airplane = e.Data.GetData(typeof(Airplane)) as Airplane;
+
+
+            }
+            else
+            {
+                airplane = e.Data.GetData(typeof(Airbus)) as Airbus;
             }
             DrawAirplane();
         }
 
         private void buttonAddTransport_Click(object sender, EventArgs e)
         {
-            eventAddAirplane?.Invoke(airplane);
+            eventAddAirplane(airplane);
             Close();
         }
     }
