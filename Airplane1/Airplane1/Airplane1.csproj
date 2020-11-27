@@ -67,6 +67,12 @@
     <Compile Include="Airplane.cs" />
     <Compile Include="AirTransport.cs" />
     <Compile Include="Direction.cs" />
+    <Compile Include="FormAirplaneConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAirplaneConfig.Designer.cs">
+      <DependentUpon>FormAirplaneConfig.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormAirplane.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +89,12 @@
     <Compile Include="Aerodrome.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormAirplaneConfig.ja.resx">
+      <DependentUpon>FormAirplaneConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAirplaneConfig.resx">
+      <DependentUpon>FormAirplaneConfig.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormAirplane.resx">
       <DependentUpon>FormAirplane.cs</DependentUpon>
     </EmbeddedResource>

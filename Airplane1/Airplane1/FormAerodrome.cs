@@ -37,18 +37,13 @@ namespace Airplane1
 
         public void Draw()
         {
-            Bitmap bmp = new Bitmap(pictureBoxAerodrome.Width, pictureBoxAerodrome.Height);
-            Graphics gr = Graphics.FromImage(bmp);
-
             if (listBoxAerodrome.SelectedIndex > -1)
             {
+                Bitmap bmp = new Bitmap(pictureBoxAerodrome.Width, pictureBoxAerodrome.Height);
+                Graphics gr = Graphics.FromImage(bmp);
                 aerodromeCollection[listBoxAerodrome.SelectedItem.ToString()].Draw(gr);
+                pictureBoxAerodrome.Image = bmp;
             }
-            else
-            {
-                pictureBoxAerodrome.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            }
-            pictureBoxAerodrome.Image = bmp;
         }
 
         private void buttonAddAerodrome_Click(object sender, EventArgs e)
@@ -75,7 +70,6 @@ namespace Airplane1
             }
         }
 
-
         private void buttonSetAirplane_Click(object sender, EventArgs e)
         {
             if (listBoxAerodrome.SelectedIndex > -1)
@@ -90,7 +84,7 @@ namespace Airplane1
                     }
                     else
                     {
-                        MessageBox.Show("aerodrome is full");
+                        MessageBox.Show("Aerodrome is full");
                     }
                 }
             }
@@ -141,6 +135,28 @@ namespace Airplane1
         private void listBoxAerodrome_SelectedIndexChanged(object sender, EventArgs e)
         {
             Draw();
+        }
+
+        private void buttonAddAirTransport_Click(object sender, EventArgs e)
+        {
+            FormAirplaneConfig formAirplaneConfig = new FormAirplaneConfig();
+            formAirplaneConfig.AddEvent(AddAirplane);
+            formAirplaneConfig.Show();
+        }
+
+        private void AddAirplane(AirTransport airTransport)
+        {
+            if (airTransport != null && listBoxAerodrome.SelectedIndex > -1)
+            {
+                if ((aerodromeCollection[listBoxAerodrome.SelectedItem.ToString()]) + airTransport)
+                {
+                    Draw();
+                }
+                else
+                {
+                    MessageBox.Show("The airplane failed to deliver");
+                }
+            }
         }
     }
 }

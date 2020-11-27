@@ -35,13 +35,13 @@ namespace Airplane1
         public static T operator -(Aerodrome<T> p, int index)
         {
             // Прописать логику для вычитания
-            if (index < -1 || index > p._places.Count)
+            if (index < -1 || index >= p._places.Count)
             {
                 return null;
             }
-            T airplane = p._places[index];
+            T airtransport = p._places[index];
             p._places.RemoveAt(index);
-            return airplane;
+            return airtransport;
         }
 
         public void Draw(Graphics g)
