@@ -54,7 +54,7 @@ namespace Airplane1
         {
             if (a._places.Count >= a._maxCount)
             {
-                return false;
+                throw new AerodromeOverflowException();
             }
             a._places.Add(airplane);
             return true;
@@ -70,7 +70,7 @@ namespace Airplane1
         {
             if (index < 0 || index >= a._places.Count)
             {
-                return null;
+                throw new AerodromeNotFoundException(index);
             }
             T airplane = a._places[index];
             a._places.RemoveAt(index);

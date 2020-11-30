@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
@@ -172,7 +173,7 @@ namespace Airplane1
         {
             if (!File.Exists(filename))
             {
-                return false;
+                throw new FileNotFoundException("Not found");
             }
             using (StreamReader sr = new StreamReader(filename))
             {
@@ -185,7 +186,7 @@ namespace Airplane1
                 else
                 {
                     //если нет такой записи, то это не те данные
-                    return false;
+                    throw new FormatException("Invalid file format");
                 }
 
                 AirTransport airplane = null;
@@ -215,7 +216,7 @@ namespace Airplane1
                     bool result = aerodromeStages[key] + airplane;
                     if (!result)
                     {
-                        return false;
+                        throw new FileLoadException("Failed to load the airplane");
                     }
                 }
                 return true;

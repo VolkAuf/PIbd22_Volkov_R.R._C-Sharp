@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -8,10 +9,16 @@ namespace Airplane1
     {
         private readonly AerodromeCollection aerodromeCollection;
 
+        /// <summary>
+        /// Логгер
+        /// </summary>
+        private readonly Logger logger;
+
         public FormAerodrome()
         {
             InitializeComponent();
             aerodromeCollection = new AerodromeCollection(pictureBoxAerodrome.Width, pictureBoxAerodrome.Height);
+            logger = LogManager.GetCurrentClassLogger();
         }
 
         /// <summary>
@@ -53,6 +60,7 @@ namespace Airplane1
                 MessageBox.Show("Get Aerodrome Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            logger.Info($"Set aerodrome {textBoxNewLevel.Text}");
             aerodromeCollection.AddAerodrome(textBoxNewLevel.Text);
             ReloadLevels();
         }
@@ -63,6 +71,7 @@ namespace Airplane1
             {
                 if (MessageBox.Show($"Delete aerodrome {listBoxAerodrome.SelectedItem.ToString()}?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
+                    logger.Info($"Delete aerodrome {listBoxAerodrome.SelectedItem.ToString()}");
                     aerodromeCollection.DeleteAerodrome(listBoxAerodrome.SelectedItem.ToString());
                     ReloadLevels();
                 }
@@ -120,20 +129,37 @@ namespace Airplane1
         {
             if (listBoxAerodrome.SelectedIndex > -1 && maskedTextBoxNumber.Text != "")
             {
-                AirTransport airplane = aerodromeCollection[listBoxAerodrome.SelectedItem.ToString()] - Convert.ToInt32(maskedTextBoxNumber.Text);
-
-                if (airplane != null)
+                try
                 {
-                    FormAirplane form = new FormAirplane();
-                    form.setAirplane(airplane);
-                    form.ShowDialog();
+                    AirTransport airplane = aerodromeCollection[listBoxAerodrome.SelectedItem.ToString()] - Convert.ToInt32(maskedTextBoxNumber.Text);
+
+                    if (airplane != null)
+                    {
+                        FormAirplane form = new FormAirplane();
+                        form.setAirplane(airplane);
+                        form.ShowDialog();
+
+                        logger.Info($"Take airplane {airplane} in place {maskedTextBoxNumber.Text}");
+
+                        Draw();
+                    }
                 }
-                Draw();
+                catch (AerodromeNotFoundException ex)
+                {
+                    MessageBox.Show(ex.Message, "Not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    logger.Warn("Not found");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Unknown Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    logger.Warn("Unknown Error");
+                }
             }
         }
 
         private void listBoxAerodrome_SelectedIndexChanged(object sender, EventArgs e)
         {
+            logger.Info($"Moved to the aerodrome {listBoxAerodrome.SelectedItem.ToString()}");
             Draw();
         }
 
@@ -148,13 +174,28 @@ namespace Airplane1
         {
             if (airTransport != null && listBoxAerodrome.SelectedIndex > -1)
             {
-                if ((aerodromeCollection[listBoxAerodrome.SelectedItem.ToString()]) + airTransport)
+                try
                 {
+                    if ((aerodromeCollection[listBoxAerodrome.SelectedItem.ToString()]) + airTransport)
+                    {
+                        Draw();
+                        logger.Info($"Set airplane {airTransport}");
+                    }
+                    else
+                    {
+                        MessageBox.Show("The airplane failed to deliver");
+                    }
                     Draw();
                 }
-                else
+                catch (AerodromeOverflowException ex)
                 {
-                    MessageBox.Show("The airplane failed to deliver");
+                    MessageBox.Show(ex.Message, "Overflow", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    logger.Warn("Overflow");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Unknow Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    logger.Warn("unknow Error");
                 }
             }
         }
@@ -168,13 +209,16 @@ namespace Airplane1
         {
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                if (aerodromeCollection.SaveData(saveFileDialog.FileName))
+                try
                 {
-                    MessageBox.Show("Сохранение прошло успешно", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    aerodromeCollection.SaveData(saveFileDialog.FileName);
+                    MessageBox.Show("Saved successfully", "Result", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    logger.Info("Saved file " + saveFileDialog.FileName);
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Не сохранилось", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "Uncnown Error saved", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    logger.Warn("Uncnown Error saved");
                 }
             }
         }
@@ -188,15 +232,23 @@ namespace Airplane1
         {
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                if (aerodromeCollection.LoadData(openFileDialog.FileName))
+                try
                 {
-                    MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    aerodromeCollection.LoadData(openFileDialog.FileName);
+                    MessageBox.Show("Download", "Result", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    logger.Info("Loaded from file " + openFileDialog.FileName);
                     ReloadLevels();
                     Draw();
                 }
-                else
+                catch (AerodromeOccupiedPlaceException ex)
                 {
-                    MessageBox.Show("Не загрузили", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "Occupied places", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    logger.Warn("Occupied places");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Unknown Error download", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    logger.Warn("Unknown Error download");
                 }
             }
         }
