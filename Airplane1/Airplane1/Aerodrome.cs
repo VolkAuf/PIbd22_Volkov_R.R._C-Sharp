@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 
 namespace Airplane1
@@ -55,6 +56,10 @@ namespace Airplane1
             if (a._places.Count >= a._maxCount)
             {
                 throw new AerodromeOverflowException();
+            }
+            if(airplane == null)
+            {
+                throw new ArgumentNullException();
             }
             a._places.Add(airplane);
             return true;
