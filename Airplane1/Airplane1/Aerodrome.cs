@@ -1,10 +1,11 @@
-﻿using System;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 
 namespace Airplane1
 {
-    public class Aerodrome<T> where T : class, ITransport
+    public class Aerodrome<T> : IEnumerator<T>, IEnumerable<T>
+        where T : class, ITransport
     {
         /// <summary>
         /// Список объектов, которые храним
@@ -31,6 +32,14 @@ namespace Airplane1
         /// </summary>
         private readonly int _placeSizeHeight = 100;
         /// <summary>
+        /// Текущий элемент для вывода через IEnumerator 
+        /// (будет обращаться по своему индексу к ключу словаря, по которму будет возвращаться запись)
+        /// </summary>
+        private int _currentIndex;
+
+        public T Current => _places[_currentIndex];
+        object IEnumerator.Current => _places[_currentIndex];
+        /// <summary>
         /// Конструктор
         /// </summary>
         /// <param name="picWidth">Рамзер аэродрома - ширина</param>
@@ -43,6 +52,7 @@ namespace Airplane1
             pictureWidth = picWidth;
             pictureHeight = picHeight;
             _places = new List<T>();
+            _currentIndex = -1;
         }
         /// <summary>
         /// Перегрузка оператора сложения
@@ -57,9 +67,9 @@ namespace Airplane1
             {
                 throw new AerodromeOverflowException();
             }
-            if(airplane == null)
+            if (a._places.Contains(airplane))
             {
-                throw new ArgumentNullException();
+                throw new AerodromeAlreadyHaveException();
             }
             a._places.Add(airplane);
             return true;
@@ -119,6 +129,61 @@ namespace Airplane1
                 }
                 g.DrawLine(pen, i * _placeSizeWidth, 0, i * _placeSizeWidth, (pictureHeight / _placeSizeHeight) * _placeSizeHeight);
             }
+        }
+
+        /// <summary>
+        /// Сортировка самолётов на аэродроме
+        /// </summary>
+        public void Sort()
+        {
+            _places.Sort((IComparer<T>)new AirplaneComparer());
+        }
+
+        /// <summary>
+        /// Метод интерфейса IEnumerator, вызываемый при удалении объекта
+        /// </summary>
+        public void Dispose()
+        {
+        }
+        /// <summary>
+        /// Метод интерфейса IEnumerator для перехода к следующему элементу или началу коллекции
+        /// </summary>
+        /// <returns></returns>
+        public bool MoveNext()
+        {
+            // Реализовать логику
+            if (_currentIndex < _places.Count - 1)
+            {
+                _currentIndex++;
+                return true;
+            }
+            else
+            {
+                Reset();
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Метод интерфейса IEnumerator для сброса и возврата к началу коллекции
+        /// </summary>
+        public void Reset()
+        {
+            _currentIndex = -1;
+        }
+        /// <summary>
+        /// Метод интерфейса IEnumerable
+        /// </summary>
+        public IEnumerator<T> GetEnumerator()
+        {
+            return this;
+        }
+        /// <summary>
+        /// Метод интерфейса IEnumerable
+        /// </summary>
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return this;
         }
     }
 }

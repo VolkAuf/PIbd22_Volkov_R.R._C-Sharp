@@ -112,10 +112,10 @@ namespace Airplane1
             switch (e.Data.GetData(DataFormats.Text).ToString())
             {
                 case "Airplane":
-                    airplane = new Airplane((int)numericUpDownMaxSpeed.Value, (int)numericUpDownWeight.Value, Color.Cyan);
+                    airplane = new Airplane((int)numericUpDownMaxSpeed.Value, (int)numericUpDownWeight.Value, Color.Red);
                     break;
                 case "Airbus":
-                    airplane = new Airbus((int)numericUpDownMaxSpeed.Value, (int)numericUpDownWeight.Value, Color.Cyan, Color.Black,
+                    airplane = new Airbus((int)numericUpDownMaxSpeed.Value, (int)numericUpDownWeight.Value, Color.Red, Color.Black,
                     checkBoxBackTurbin.Checked, checkBoxSideTurbin.Checked, checkBoxMarketLine.Checked, checkBoxRegulTail.Checked, checkBoxIlluminator.Checked, checkBoxSecondFloor.Checked);
                     break;
             }

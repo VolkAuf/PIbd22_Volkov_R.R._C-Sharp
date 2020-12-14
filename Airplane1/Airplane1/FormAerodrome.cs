@@ -192,6 +192,11 @@ namespace Airplane1
                     MessageBox.Show(ex.Message, "Overflow", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     logger.Warn("Overflow");
                 }
+                catch (AerodromeAlreadyHaveException ex)
+                {
+                    MessageBox.Show(ex.Message, "Duplication", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    logger.Warn("Duplication");
+                }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Unknow Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -250,6 +255,16 @@ namespace Airplane1
                     MessageBox.Show(ex.Message, "Unknown Error download", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     logger.Warn("Unknown Error download");
                 }
+            }
+        }
+
+        private void buttonSort_Click(object sender, EventArgs e)
+        {
+            if (listBoxAerodrome.SelectedIndex > -1)
+            {
+                aerodromeCollection[listBoxAerodrome.SelectedItem.ToString()].Sort();
+                Draw();
+                logger.Info("Sort level");
             }
         }
     }

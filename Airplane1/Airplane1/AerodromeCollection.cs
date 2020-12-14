@@ -140,8 +140,7 @@ namespace Airplane1
                 {
                     //Начинаем выгрузку аэродрома
                     sw.WriteLine($"Aerodrome{separator}{level.Key}");
-                    ITransport airplane = null;
-                    for (int i = 0; (airplane = level.Value.GetNext(i)) != null; i++)
+                    foreach (ITransport airplane in level.Value)
                     {
                         if (airplane != null)
                         {

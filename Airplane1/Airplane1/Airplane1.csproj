@@ -70,12 +70,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AerodromeAlreadyHaveException.cs" />
     <Compile Include="AerodromeCollection.cs" />
     <Compile Include="AerodromeNotFoundException.cs" />
     <Compile Include="AerodromeOccupiedPlaceException.cs" />
     <Compile Include="AerodromeOverflowException.cs" />
     <Compile Include="Airbus.cs" />
     <Compile Include="Airplane.cs" />
+    <Compile Include="AirplaneComparer.cs" />
     <Compile Include="AirTransport.cs" />
     <Compile Include="Direction.cs" />
     <Compile Include="FormAirplaneConfig.cs">
