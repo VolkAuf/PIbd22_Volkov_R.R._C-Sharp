@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace Airplane1
 {
-    internal class Airbus : Airplane
+    internal class Airbus : Airplane, IEquatable<Airbus>
     {
         public Color DopColor { private set; get; }
         public bool HasBackTurbine { private set; get; }
@@ -162,6 +162,86 @@ namespace Airplane1
                     (int)(airplaneWidth * 0.04), (int)(airplaneWidth * 0.04));
                 g.FillEllipse(illuminator, (int)(_startPosX + airplaneWidth * 0.7), (int)(_startPosY + airplaneHeight * 0.5),
                     (int)(airplaneWidth * 0.04), (int)(airplaneWidth * 0.04));
+            }
+        }
+
+        /// <summary>
+        /// Метод интерфейса IEquatable для класса Airbus
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
+        public bool Equals(Airbus other)
+        {
+            // Реализовать метод сравнения для дочернего класса
+            if (other == null)
+            {
+                return false;
+            }
+            if (GetType().Name != other.GetType().Name)
+            {
+                return false;
+            }
+            if (MaxSpeed != other.MaxSpeed)
+            {
+                return false;
+            }
+            if (Weight != other.Weight)
+            {
+                return false;
+            }
+            if (MainColor != other.MainColor)
+            {
+                return false;
+            }
+            if (DopColor != other.DopColor)
+            {
+                return false;
+            }
+            if (HasBackTurbine != other.HasBackTurbine)
+            {
+                return false;
+            }
+            if (HasSideTurbine != other.HasSideTurbine)
+            {
+                return false;
+            }
+            if (HasRegulTail != other.HasRegulTail)
+            {
+                return false;
+            }
+            if (HasMarketLine != other.HasMarketLine)
+            {
+                return false;
+            }
+            if (HasSecondFloor != other.HasSecondFloor)
+            {
+                return false;
+            }
+            if (HasIlluminator != other.HasIlluminator)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Перегрузка метода от object
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (!(obj is Airbus carObj))
+            {
+                return false;
+            }
+            else
+            {
+                return Equals(carObj);
             }
         }
     }

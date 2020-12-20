@@ -45,6 +45,7 @@
             this.downloadToolStripMenuItemAerodrome = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.buttonSort = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAerodrome)).BeginInit();
             this.groupBoxAerodrome.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -126,7 +127,7 @@
             // labelAerodromeStage
             // 
             this.labelAerodromeStage.AutoSize = true;
-            this.labelAerodromeStage.Location = new System.Drawing.Point(840, 25);
+            this.labelAerodromeStage.Location = new System.Drawing.Point(840, 30);
             this.labelAerodromeStage.Name = "labelAerodromeStage";
             this.labelAerodromeStage.Size = new System.Drawing.Size(117, 17);
             this.labelAerodromeStage.TabIndex = 6;
@@ -154,9 +155,9 @@
             // 
             // buttonAddAirTransport
             // 
-            this.buttonAddAirTransport.Location = new System.Drawing.Point(840, 320);
+            this.buttonAddAirTransport.Location = new System.Drawing.Point(840, 365);
             this.buttonAddAirTransport.Name = "buttonAddAirTransport";
-            this.buttonAddAirTransport.Size = new System.Drawing.Size(130, 70);
+            this.buttonAddAirTransport.Size = new System.Drawing.Size(130, 55);
             this.buttonAddAirTransport.TabIndex = 9;
             this.buttonAddAirTransport.Text = "Add AirTransport";
             this.buttonAddAirTransport.UseVisualStyleBackColor = true;
@@ -169,7 +170,7 @@
             this.myFileToolStripMenuItemAerodrome});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(982, 28);
+            this.menuStrip.Size = new System.Drawing.Size(982, 30);
             this.menuStrip.TabIndex = 10;
             this.menuStrip.Text = "menuStrip";
             // 
@@ -179,7 +180,7 @@
             this.saveToolStripMenuItemAerodrome,
             this.downloadToolStripMenuItemAerodrome});
             this.myFileToolStripMenuItemAerodrome.Name = "myFileToolStripMenuItemAerodrome";
-            this.myFileToolStripMenuItemAerodrome.Size = new System.Drawing.Size(46, 24);
+            this.myFileToolStripMenuItemAerodrome.Size = new System.Drawing.Size(46, 26);
             this.myFileToolStripMenuItemAerodrome.Text = "File";
             // 
             // saveToolStripMenuItemAerodrome
@@ -205,11 +206,22 @@
             this.openFileDialog.FileName = "openFileDialog";
             this.openFileDialog.Filter = "txt file | *.txt";
             // 
+            // buttonSort
+            // 
+            this.buttonSort.Location = new System.Drawing.Point(840, 305);
+            this.buttonSort.Name = "buttonSort";
+            this.buttonSort.Size = new System.Drawing.Size(130, 55);
+            this.buttonSort.TabIndex = 11;
+            this.buttonSort.Text = "Sort";
+            this.buttonSort.UseVisualStyleBackColor = true;
+            this.buttonSort.Click += new System.EventHandler(this.buttonSort_Click);
+            // 
             // FormAerodrome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(982, 553);
+            this.Controls.Add(this.buttonSort);
             this.Controls.Add(this.buttonAddAirTransport);
             this.Controls.Add(this.buttonDeleteAerodrome);
             this.Controls.Add(this.buttonAddAerodrome);
@@ -252,5 +264,6 @@
         private System.Windows.Forms.ToolStripMenuItem downloadToolStripMenuItemAerodrome;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.Button buttonSort;
     }
 }

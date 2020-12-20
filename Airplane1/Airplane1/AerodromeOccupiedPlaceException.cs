@@ -8,7 +8,7 @@ namespace Airplane1
 {
     class AerodromeOccupiedPlaceException : Exception
     {
-        public AerodromeOccupiedPlaceException() : base("Place is occupied ")
+        public AerodromeOccupiedPlaceException(int i) : base("Place is occupied Index: " + i)
         { }
     }   
 }
